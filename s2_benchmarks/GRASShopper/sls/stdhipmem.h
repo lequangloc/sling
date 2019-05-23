@@ -4,6 +4,8 @@
  * 
  * Created: Oct. 31, 2013.
  */
+
+//do not use typedef, S2 has not supported it yet
 typedef
 /*D_tag node */
 struct node {
@@ -19,16 +21,18 @@ void* malloc(int size) __attribute__ ((noreturn))
   }
 */;
 
+//wrong spec here
 Node * split(Node * x)
  /*@
-    requires x::lseg<x>
+    requires x::lseg<_>
     ensures res::lseg<x>;
 */
 ;
 
+// the spec looks weird
 Node * merge(Node * a, Node * b) 
   /*@
-    requires a::lseg<x> * b::lseg<y>
+    requires a::lseg<_> * b::lseg<_>
     ensures res::lseg<a>;
 */
 ;
@@ -45,84 +49,8 @@ struct GList {
 };
 
 
-/*@ lseg<p> == self=p 
+/*@ lseg<p> == emp & self=p 
    or self::node<_,n> * n::lseg<p> & self!=null; */
-
-/*
-dlseg<y> == self=y
-  or self::GList<_,_,n> * n::dlseg<y> & self!=null;
-*/
-
-
-/* struct GSList* */
-/* g_slist_last (struct GSList* list) */
-/* /\*@ */
-/*  case { list=null -> ensures res=null; */
-/*    list!=null -> */
-/*      requires list::lseg<l> * l::GSList<a,null> */
-/*   ensures list::lseg<res> * res::GSList<a,null>; */
-/* } */
-/* *\/ */
-/* ; */
-
-/* struct GSList* */
-/* g_slist_append (struct GSList* list, */
-/*                 int val) */
-/* /\*@ */
-/*  case { */
-/*   list=null -> ensures res::GSList<key, null>; */
-/*   list!=null -> requires list::lseg<null> */
-/*     ensures list::lseg<q>*q::GSList<key, null>; */
-/* } */
-/* *\/; */
-
-/* struct GSList* */
-/* g_slist_prepend (struct GSList* list, */
-/*                  int val) */
-/* /\*@ */
-/*   requires list::lseg<p> */
-/*   ensures res::GSList<key,list> * list::lseg<p>; */
-/* *\/; */
-
-/* struct GSList* */
-/* g_slist_nth (struct GSList *list, */
-/*              int n) */
-/* /\*@ */
-/*    case { */
-/*   list=null -> ensures res=null; */
-/*   list!=null -> requires list::lseg<null> ensures res::lseg<null> & res!=null; */
-/* } */
-/* *\/; */
-
-/* struct GList* */
-/* g_list_append (struct GList* list, */
-/*                int key) */
-/* /\*@ */
-/* case { */
-/*   list=null -> ensures res::GList<key, null, null>; */
-/*   list!=null -> */
-/*     requires list::dlseg<null> */
-/*     ensures res::dlseg<q> * q::GList<key,_,null>; */
-/* } */
-/* *\/; */
-
-/* struct GList* */
-/* g_list_prepend (struct GList* list, */
-/*                 int key) */
-/* /\*@ */
-/*   requires list::dlseg<p> */
-/*   ensures res::GList<key,null,list> * list::dlseg<p>; */
-/* *\/; */
-
-/* struct GList* */
-/* g_list_nth (struct GList* list, */
-/* 	    int n) */
-/* /\*@ */
-/* case { */
-/*   list=null -> ensures res=null; */
-/*   list!=null -> requires list::dlseg<null> ensures res::dlseg<null> & res!=null; */
-/* } */
-/* *\/; */
 
 
 int random()
