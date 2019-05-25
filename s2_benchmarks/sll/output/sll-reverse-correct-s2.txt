@@ -1,0 +1,108 @@
+
+!!!Full processing file "sll-reverse.dryad.c"
+Parsing file "sll-reverse.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E sll-reverse.dryad.c -o sll-reverse.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!!WARNING : uninterpreted free variables [y] in specification.
+Checking procedure while_30_1$node~node~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[ HP_1781,HP_1782,G1]requires HP_1781(x) * HP_1782(y_80)&
+truerequires emp
+ ensures G1(x,x',y_80,y_80')&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;1;0)H4(x,y_80)&x!=null --> x::node<key_44_1790,next_44_1791> * 
+HP_1792(next_44_1791,y_80,x@NI)&
+true,
+ // PRE_REC
+(1;1;0)HP_1792(next_44_1791,y_1798,x@NI)&
+true |#| x::node<key_44_1790,y_1798>&true --> H4(next_44_1791,x)&
+true,
+ // POST
+(1;1;0)G1(next_45_1797,x',x,y_80')&true --> G1(x,x',y_80,y_80')&
+true,
+ // POST
+(2;1;0)H4(x,y_80)&x=null & x'=null & x'=x & 
+y_80'=y_80 --> G1(x,x',y_80,y_80')&
+true]
+
+Procedure while_30_1$node~node~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ H4(x_1816,y_1817) ::= HP_1822(x_1816)(4,5),
+ G1(x,x',y_80,y_80') ::= emp&x'=x & y_80'=y_80 & x=null & x'=null(4,5),
+ HP_1822(x_1816) ::= 
+ HP_1822(next_44_1813) * x_1816::node<key_44_1812,next_44_1813>
+ or emp&x_1816=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase HP_1781(x) * HP_1782(y_80)&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [y_80;tmp_81;x]
+                   emp&x'=x & y_80'=y_80 & x=null & x'=null&
+                   {FLOW,(4,5)=__norm#E}[]
+                   
+Checking procedure sll_reverse$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[ H3]requires H3(x,y)&truerequires emp
+ ensures htrue&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // PRE
+(0)H3(x,y)&true --> HP_1781(x)&
+true,
+ // PRE
+(0)emp&y_80'=null --> HP_1782(y_80')&
+true]
+
+Procedure sll_reverse$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ H3(x_1887,y_1888) ::= HP_1781(x_1887)(4,5),
+ G1(x,x',y_80,y_80') ::= emp&x'=x & y_80'=y_80 & x=null & x'=null(4,5),
+ H4(x_1816,y_1817) ::= HP_1822(x_1816)(4,5),
+ HP_1822(x_1816) ::= 
+ HP_1822(next_44_1813) * x_1816::node<key_44_1812,next_44_1813>
+ or emp&x_1816=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase HP_1781(x)&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   htrue&{FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 127 invocations 
+1 false contexts at: ( (30,1) )
+
+!!! log(small):(0.050142,396)
+Total verification time: 0.324803 second(s)
+	Time spent in main process: 0.273525 second(s)
+	Time spent in child processes: 0.051278 second(s)
+
+pred_syn_lemma: 4

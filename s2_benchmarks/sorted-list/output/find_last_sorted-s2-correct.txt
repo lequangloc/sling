@@ -1,0 +1,135 @@
+
+!!!Full processing file "find_last_sorted.dryad.c"
+Parsing file "find_last_sorted.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E find_last_sorted.dryad.c -o find_last_sorted.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of find_last_sorted: :HP_17
+!!! post_eargs:[l,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_14_3$node: :HP_1591
+!!! post_eargs:[curr_64,curr_64']
+Checking procedure while_14_3$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1591,GP_1593]requires HP_1591(curr_64)&
+truerequires emp
+ ensures GP_1593(curr_64,curr_64')&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;0)HP_1591(curr_64)&true --> curr_64::node<key_14_1641,next_14_1642> * 
+HP_1643(next_14_1642,curr_64@NI)&
+true,
+ // PRE_REC
+(1;1;0)HP_1643(curr_64',curr_64@NI)&
+curr_64'!=null |#| curr_64::node<key_14_1641,curr_64'>&
+true --> HP_1591(curr_64')&
+true,
+ // POST
+(1;1;0)curr_64::node<key_14_1641,next_14_1642> * 
+GP_1593(next_14_1642,curr_64')&
+next_14_1642!=null --> GP_1593(curr_64,curr_64')&
+true,
+ // POST
+(2;1;0)curr_64::node<key_14_1641,next_14_1642>&next_14_1642=null & 
+curr_64'=curr_64 --> GP_1593(curr_64,curr_64')&
+true,
+ // POST
+(2;1;0)HP_1643(next_14_1642,curr_64@NI)&next_14_1642=null --> emp&
+true]
+
+Procedure while_14_3$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_1591(curr_1665) ::= 
+ curr_1665::node<key_14_1641,next_14_1642> * HP_1591(next_14_1642)&
+ curr_1665!=null
+ or curr_1665::node<key_14_1641,next_14_1642>&curr_1665!=null & 
+    next_14_1642=null
+ (4,5),
+ GP_1593(curr_1666,curr_1667) ::= curr_1673::node<key_14_1641,next_14_1642> * curr_1666::lseg<curr_1673>&
+next_14_1642=null & curr_1667=curr_1673(4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase curr_64::HP_1591{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [curr_64]
+                   (exists key_14_1641,next_14_1642,
+                   curr_1673: curr_1673::node<key_14_1641,next_14_1642> * 
+                   curr_64::lseg{}<curr_1673>&next_14_1642=null & 
+                   curr_64'=curr_1673&{FLOW,(4,5)=__norm#E})[]
+                   
+Checking procedure find_last_sorted$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_17,GP_18]requires HP_17(l)&
+truerequires emp
+ ensures GP_18(l,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // PRE
+(1;0)HP_17(curr_64')&curr_64'!=null --> curr_64'::HP_1591<>&
+true,
+ // POST
+(1;0)res::node<key_14_1872,next_14_1873> * l::lseg<res>&
+next_14_1873=null --> GP_18(l,res)&
+true,
+ // POST
+(2;0)HP_17(l)&l=null & res=null & res=l --> GP_18(l,res)&
+true]
+
+Procedure find_last_sorted$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_17(curr_1874) ::= 
+ curr_1874::HP_1591<>&curr_1874!=null
+ or emp&curr_1874=null
+ (4,5),
+ GP_18(l_1875,res_1876) ::= 
+ res_1876::node<key_14_1872,next_14_1873> * l_1875::lseg<res_1876>&
+ next_14_1873=null
+ or emp&l_1875=null & res_1876=null
+ (4,5),
+ GP_1593(curr_1666,curr_1667) ::= curr_1673::node<key_14_1641,next_14_1642> * curr_1666::lseg<curr_1673>&
+next_14_1642=null & curr_1667=curr_1673(4,5),
+ HP_1591(curr_1665) ::= 
+ curr_1665::node<key_14_1641,next_14_1642> * HP_1591(next_14_1642)&
+ curr_1665!=null
+ or curr_1665::node<key_14_1641,next_14_1642>&curr_1665!=null & 
+    next_14_1642=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase l::HP_17{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   l::GP_18{}<res>&{FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 372 invocations 
+1 false contexts at: ( (14,3) )
+
+!!! log(small):(0.405884,1173)
+Total verification time: 0.469051 second(s)
+	Time spent in main process: 0.399422 second(s)
+	Time spent in child processes: 0.069629 second(s)
+
+pred_syn_lemma: 6

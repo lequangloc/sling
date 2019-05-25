@@ -1,0 +1,211 @@
+
+!!!Full processing file "avl-balance.dryad.c"
+Parsing file "avl-balance.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E avl-balance.dryad.c -o avl-balance.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of avl_balance_rec: :HP_18
+!!! post_eargs:[x,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+Checking procedure get_height$a_node... Proving binding in method get_height$a_node for spec  EAssume 
+   htrue&{FLOW,(4,5)=__norm#E}[]
+   , Line 0
+
+( [(,1 ); (,2 )]) bind: node  x'::a_node<left_55_1658',right_55_1659',key_55_1660',height_55_1661'>@L cannot be derived from context
+stdhipmem.h_55:15_-1:-1
+
+(Cause of Bind Failure) List of Failesc Context: [FEC(1, 0, 0 )]
+Failed States:
+[
+ Label: [(,1 ); (,2 )]
+ State:
+        fe_kind: MAY
+        fe_name: separation entailment
+        fe_locs: {
+                  fc_message: 
+                   do_unmatched_rhs : x'::a_node<left_55_1658',right_55_1659',key_55_1660',height_55_1661'>@L
+                  fc_current_lhs_flow: {FLOW,(4,11)=__MayError#E}}
+[[ COND ==>  UnmatchedRHSData ==> ]]
+ ]stdhipmem.h_55:15_-1:-1
+
+Context of Verification Failure: 1 File "",Line:0,Col:0
+
+Last Proving Location: 1 File "stdhipmem.h",Line:55,Col:15
+
+Procedure get_height$a_node FAIL.(2)
+
+Exception Failure("bind failure exception") Occurred!
+
+Error(s) detected when checking procedure get_height$a_node
+
+Checking procedure avl_balance$a_node... Proving binding in method avl_balance$a_node for spec  EAssume 
+   htrue&{FLOW,(4,5)=__norm#E}[]
+   , Line 0
+
+( []) bind: node  x'::a_node<left_65_1667',right_65_1668',key_65_1669',height_65_1670'>@L cannot be derived from context
+stdhipmem.h_65:22_-1:-1
+
+(Cause of Bind Failure) List of Failesc Context: [FEC(1, 0, 0 )]
+Failed States:
+[
+ Label: []
+ State:
+        fe_kind: MAY
+        fe_name: separation entailment
+        fe_locs: {
+                  fc_message: 
+                   do_unmatched_rhs : x'::a_node<left_65_1667',right_65_1668',key_65_1669',height_65_1670'>@L
+                  fc_current_lhs_flow: {FLOW,(4,11)=__MayError#E}}
+[[ COND ==>  UnmatchedRHSData ==> ]]
+ ]stdhipmem.h_65:22_-1:-1
+
+Context of Verification Failure: 1 File "",Line:0,Col:0
+
+Last Proving Location: 1 File "stdhipmem.h",Line:65,Col:22
+
+Procedure avl_balance$a_node FAIL.(2)
+
+Exception Failure("bind failure exception") Occurred!
+
+Error(s) detected when checking procedure avl_balance$a_node
+
+Checking procedure avl_balance_rec$a_node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_18,GP_19]requires HP_18(x)&
+truerequires emp
+ ensures GP_19(x,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(0)HP_18(x)&
+true --> x::a_node<left_12_2091,right_12_2092,key_12_2093,height_12_2094> * 
+HP_2095(left_12_2091,x@NI) * HP_2096(right_12_2092,x@NI)&
+true,
+ // BIND
+(1;0)HP_2096(right_12_2092,x@NI) * (htrue)&
+true |#| x::a_node<left_12_2091,right_12_2092,key_12_2093,height_12_2094>&
+true --> right_12_2092::a_node<left_17_2133,right_17_2134,key_17_2135,height_17_2136> * 
+HP_2137(left_17_2133,x@NI,right_12_2092@NI) * 
+HP_2138(right_17_2134,x@NI,right_12_2092@NI)&
+true,
+ // BIND
+(2;1;0)HP_2137(left_17_2133,x@NI,right_12_2092@NI) * (htrue)&
+true |#| right_12_2092::a_node<left_17_2133,right_17_2134,key_17_2135,height_17_2136>&
+true --> left_17_2133::a_node<left_31_2193,right_31_2194,key_31_2195,height_31_2196> * 
+HP_2197(left_31_2193,x@NI,right_12_2092@NI,left_17_2133@NI) * 
+HP_2198(right_31_2194,x@NI,right_12_2092@NI,left_17_2133@NI)&
+true,
+ // BIND
+(1;2;0)HP_2095(left_100',x@NI) * (htrue)&
+true |#| x::a_node<left_100',right_12_2092,key_12_2093,height_12_2094>&
+true --> left_100'::a_node<left_47_2258,right_47_2259,key_47_2260,height_47_2261> * 
+HP_2262(left_47_2258,x@NI,left_100'@NI) * 
+HP_2263(right_47_2259,x@NI,left_100'@NI)&
+true,
+ // BIND
+(2;1;2;0)HP_2263(left_119',x@NI,left_100'@NI) * (htrue)&
+true |#| left_100'::a_node<left_47_2258,left_119',key_47_2260,height_47_2261>&
+true --> left_119'::a_node<left_61_2318,right_61_2319,key_61_2320,height_61_2321> * 
+HP_2322(left_61_2318,x@NI,left_100'@NI,left_119'@NI) * 
+HP_2323(right_61_2319,x@NI,left_100'@NI,left_119'@NI)&
+true,
+ // POST
+(1;1;0)HP_2095(left_12_2091,x@NI) * HP_2137(left_17_2133,x@NI,res@NI) * 
+HP_2138(right_17_2134,x@NI,res@NI) * (htrue)&true --> GP_19(x,res)&
+true,
+ // POST
+(2;1;0)HP_2095(left_12_2091,x@NI) * 
+HP_2138(right_17_2134,x@NI,right_12_2092@NI) * (htrue) * 
+HP_2197(left_31_2193,x@NI,right_12_2092@NI,res@NI) * 
+HP_2198(right_31_2194,x@NI,right_12_2092@NI,res@NI)&true --> GP_19(x,res)&
+true,
+ // POST
+(1;1;2;0)HP_2096(right_12_2092,x@NI) * HP_2262(left_47_2258,x@NI,res@NI) * 
+HP_2263(right_47_2259,x@NI,res@NI) * (htrue)&true --> GP_19(x,res)&
+true,
+ // POST
+(2;1;2;0)HP_2096(right_12_2092,x@NI) * 
+HP_2262(left_47_2258,x@NI,left_12_2091@NI) * (htrue) * 
+HP_2322(left_61_2318,x@NI,left_12_2091@NI,res@NI) * 
+HP_2323(right_61_2319,x@NI,left_12_2091@NI,res@NI)&true --> GP_19(x,res)&
+true,
+ // POST
+(1;2;2;0)HP_2095(left_12_2091,res@NI) * HP_2096(right_12_2092,res@NI) * 
+(htrue)&x=res --> GP_19(x,res)&
+true]
+
+Procedure avl_balance_rec$a_node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_18(x_2418) ::= x_2418::a_node<left_12_2091,right_12_2092,key_12_2093,height_12_2094> * 
+HP_2095(left_12_2091,x_2418) * HP_2096(right_12_2092,x_2418)(4,5),
+ GP_19(x_2419,res_2420) ::= 
+ htrue
+ or htrue
+ or htrue
+ or htrue&x_2419=res_2420
+ or htrue
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase exists (Expl)[](Impl)[key_12_2093; 
+       height_12_2094](ex)[]x::a_node<left_12_2091,right_12_2092,key_12_2093,height_12_2094> * 
+       HP_2095(left_12_2091,x) * HP_2096(right_12_2092,x)&
+       {FLOW,(1,28)=__flow#E}[]
+         EBase exists (Expl)[](Impl)[key_12_2093; height_12_2094](ex)[]emp&
+               MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   x::GP_19{}<res>&{FLOW,(4,5)=__norm#E}[]
+                   
+Checking procedure avl_find_smallest_h$a_node... Proving binding in method avl_find_smallest_h$a_node for spec  EAssume 
+   htrue&{FLOW,(4,5)=__norm#E}[]
+   , Line 0
+
+( []) bind: node  x'::a_node<left_37_1638',right_37_1639',key_37_1640',height_37_1641'>@L cannot be derived from context
+stdhipmem.h_37:5_-1:-1
+
+(Cause of Bind Failure) List of Failesc Context: [FEC(1, 0, 0 )]
+Failed States:
+[
+ Label: []
+ State:
+        fe_kind: MAY
+        fe_name: separation entailment
+        fe_locs: {
+                  fc_message: 
+                   do_unmatched_rhs : x'::a_node<left_37_1638',right_37_1639',key_37_1640',height_37_1641'>@L
+                  fc_current_lhs_flow: {FLOW,(4,11)=__MayError#E}}
+[[ COND ==>  UnmatchedRHSData ==> ]]
+ ]stdhipmem.h_37:5_-1:-1
+
+Context of Verification Failure: 1 File "",Line:0,Col:0
+
+Last Proving Location: 1 File "stdhipmem.h",Line:37,Col:5
+
+Procedure avl_find_smallest_h$a_node FAIL.(2)
+
+Exception Failure("bind failure exception") Occurred!
+
+Error(s) detected when checking procedure avl_find_smallest_h$a_node
+Stop Omega... 376 invocations 
+0 false contexts at: ()
+
+!!! log(small):(0.674181,2008)
+Total verification time: 1.072937 second(s)
+	Time spent in main process: 0.931618 second(s)
+	Time spent in child processes: 0.141319 second(s)
+
+pred_syn_lemma: 2

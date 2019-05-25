@@ -1,0 +1,367 @@
+
+!!!Full processing file "quick_sort.dryad.c"
+Parsing file "quick_sort.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E quick_sort.dryad.c -o quick_sort.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of find_last_sorted: :HP_17
+!!! post_eargs:[l,res]
+!!! generate unknown predicate for Pre synthesis of concat_sorted: :HP_19
+!!! post_eargs:[l1,l2,res]
+!!! generate unknown predicate for Pre synthesis of quick_sort: :HP_23
+!!! post_eargs:[l,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_13_3$node: :HP_1617
+!!! post_eargs:[curr_70,curr_70']
+!!! generate unknown predicate for Pre synthesis of while_61_1$node~node~int~node~node: :HP_1660
+!!! post_eargs:[lpt_75,lpt_75',tmp_77,tmp_77',curr_73,curr_73',rpt_76,rpt_76']
+Checking procedure while_13_3$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1617,GP_1619]requires HP_1617(curr_70)&
+truerequires emp
+ ensures GP_1619(curr_70,curr_70')&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;0)HP_1617(curr_70)&true --> curr_70::node<key_13_1767,next_13_1768> * 
+HP_1769(next_13_1768,curr_70@NI)&
+true,
+ // PRE_REC
+(1;1;0)HP_1769(curr_70',curr_70@NI)&
+curr_70'!=null |#| curr_70::node<key_13_1767,curr_70'>&
+true --> HP_1617(curr_70')&
+true,
+ // POST
+(1;1;0)curr_70::node<key_13_1767,next_13_1768> * 
+GP_1619(next_13_1768,curr_70')&
+next_13_1768!=null --> GP_1619(curr_70,curr_70')&
+true,
+ // POST
+(2;1;0)curr_70::node<key_13_1767,next_13_1768>&next_13_1768=null & 
+curr_70'=curr_70 --> GP_1619(curr_70,curr_70')&
+true,
+ // POST
+(2;1;0)HP_1769(next_13_1768,curr_70@NI)&next_13_1768=null --> emp&
+true]
+
+Procedure while_13_3$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_1617(curr_1791) ::= 
+ curr_1791::node<key_13_1767,next_13_1768> * HP_1617(next_13_1768)&
+ curr_1791!=null
+ or curr_1791::node<key_13_1767,next_13_1768>&curr_1791!=null & 
+    next_13_1768=null
+ (4,5),
+ GP_1619(curr_1792,curr_1793) ::= curr_1799::node<key_13_1767,next_13_1768> * curr_1792::lseg<curr_1799>&
+next_13_1768=null & curr_1793=curr_1799(4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase curr_70::HP_1617{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [curr_70]
+                   (exists key_13_1767,next_13_1768,
+                   curr_1799: curr_1799::node<key_13_1767,next_13_1768> * 
+                   curr_70::lseg{}<curr_1799>&next_13_1768=null & 
+                   curr_70'=curr_1799&{FLOW,(4,5)=__norm#E})[]
+                   
+Checking procedure find_last_sorted$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_17,GP_18]requires HP_17(l)&
+truerequires emp
+ ensures GP_18(l,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // PRE
+(1;0)HP_17(curr_70')&curr_70'!=null --> curr_70'::HP_1617<>&
+true,
+ // POST
+(1;0)res::node<key_13_1998,next_13_1999> * l::lseg<res>&
+next_13_1999=null --> GP_18(l,res)&
+true,
+ // POST
+(2;0)HP_17(l)&l=null & res=null & res=l --> GP_18(l,res)&
+true]
+
+Procedure find_last_sorted$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_17(curr_2000) ::= 
+ curr_2000::HP_1617<>&curr_2000!=null
+ or emp&curr_2000=null
+ (4,5),
+ GP_18(l_2001,res_2002) ::= 
+ res_2002::node<key_13_1998,next_13_1999> * l_2001::lseg<res_2002>&
+ next_13_1999=null
+ or emp&l_2001=null & res_2002=null
+ (4,5),
+ GP_1619(curr_1792,curr_1793) ::= curr_1799::node<key_13_1767,next_13_1768> * curr_1792::lseg<curr_1799>&
+next_13_1768=null & curr_1793=curr_1799(4,5),
+ HP_1617(curr_1791) ::= 
+ curr_1791::node<key_13_1767,next_13_1768> * HP_1617(next_13_1768)&
+ curr_1791!=null
+ or curr_1791::node<key_13_1767,next_13_1768>&curr_1791!=null & 
+    next_13_1768=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase l::HP_17{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   l::GP_18{}<res>&{FLOW,(4,5)=__norm#E}[]
+                   
+Checking procedure concat_sorted$node~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[ HP_19,GP_20]requires HP_19(l1,l2)&
+truerequires emp
+ ensures GP_20(l1,l2,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // PRE
+(1;1;0)HP_19(l1,l2)&l1!=null & l2!=null --> l1::HP_17<>&
+true,
+ // POST
+(1;1;0)l1::lseg<tmp_2427> * tmp_2427::node<key_13_2423,l2>&l2!=null & 
+res=l1 --> GP_20(l1,l2,res)&
+true,
+ // POST
+(2;1;0)HP_19(l1,l2)&l1=null & l2!=null & res=l2 --> GP_20(l1,l2,res)&
+true,
+ // POST
+(2;0)HP_19(l1,l2)&l2=null & res=l1 --> GP_20(l1,l2,res)&
+true]
+
+Procedure concat_sorted$node~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_19(l1_2428,l2_2429) ::= 
+ emp&l1_2428=null & l2_2429!=null
+ or emp&l2_2429=null
+ or l1_2428::HP_17<>&l1_2428!=null & l2_2429!=null
+ or emp&l2_2429=null & l1_2428!=null
+ (4,5),
+ GP_20(l1_2431,l2_2432,res_2433) ::= 
+ l1_2431::lseg<tmp_2427>&l2_2432!=null & res_2433=l1_2431
+ or emp&res_2433=l1_2431 & l2_2432=null
+ (4,5),
+ GP_1619(curr_1792,curr_1793) ::= curr_1799::node<key_13_1767,next_13_1768> * curr_1792::lseg<curr_1799>&
+next_13_1768=null & curr_1793=curr_1799(4,5),
+ GP_18(l_2001,res_2002) ::= 
+ res_2002::node<key_13_1998,next_13_1999> * l_2001::lseg<res_2002>&
+ next_13_1999=null
+ or emp&l_2001=null & res_2002=null
+ (4,5),
+ HP_1617(curr_1791) ::= 
+ curr_1791::node<key_13_1767,next_13_1768> * HP_1617(next_13_1768)&
+ curr_1791!=null
+ or curr_1791::node<key_13_1767,next_13_1768>&curr_1791!=null & 
+    next_13_1768=null
+ (4,5),
+ HP_17(curr_2000) ::= 
+ curr_2000::HP_1617<>&curr_2000!=null
+ or emp&curr_2000=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase l1::HP_19{}<l2>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   (exists l2: l1::GP_20{}<l2,res>&{FLOW,(4,5)=__norm#E})[]
+                   
+Checking procedure while_61_1$node~node~int~node~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1660,GP_1665]requires HP_1660(lpt_75,tmp_77,curr_73,rpt_76)&
+truerequires emp
+ ensures GP_1665(lpt_75,lpt_75',tmp_77,tmp_77',curr_73,curr_73',rpt_76,rpt_76')&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;1;0)HP_1660(lpt_75,tmp_77,curr_73,rpt_76)&
+curr_73!=null --> curr_73::node<key_68_2829,next_68_2830> * 
+HP_2831(next_68_2830,lpt_75,tmp_77,rpt_76,curr_73@NI)&
+true,
+ // PRE_REC
+(1;1;1;0)HP_2831(curr_73',lpt_2847,tmp_77,rpt_76,curr_2852@NI)&
+tmp_77'=curr_73' |#| curr_2852::node<key_68_2829,lpt_2847>&
+true --> HP_1660(curr_2852,tmp_77',curr_73',rpt_76)&
+true,
+ // POST
+(1;1;1;0)GP_1665(curr_73,lpt_75',next_68_2830,tmp_77',next_68_2830,curr_73',rpt_76,rpt_76')&
+true --> GP_1665(lpt_75,lpt_75',tmp_77,tmp_77',curr_73,curr_73',rpt_76,rpt_76')&
+true,
+ // POST
+(2;1;0)HP_1660(lpt_75,tmp_77,curr_73,rpt_76)&curr_73=null & curr_73'=null & 
+curr_73'=curr_73 & lpt_75'=lpt_75 & rpt_76'=rpt_76 & 
+tmp_77'=tmp_77 --> GP_1665(lpt_75,lpt_75',tmp_77,tmp_77',curr_73,curr_73',rpt_76,rpt_76')&
+true]
+
+Procedure while_61_1$node~node~int~node~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_1660(lpt_2883,tmp_2884,curr_2885,rpt_2886) ::= HP_2887(curr_2885)(4,5),
+ GP_1665(lpt_75,lpt_75',tmp_77,tmp_77',curr_73,curr_73',rpt_76,rpt_76') ::= emp&curr_73'=curr_73 & lpt_75'=lpt_75 & rpt_76'=rpt_76 & tmp_77'=tmp_77 & 
+curr_73=null & curr_73'=null(4,5),
+ GP_1619(curr_1792,curr_1793) ::= curr_1799::node<key_13_1767,next_13_1768> * curr_1792::lseg<curr_1799>&
+next_13_1768=null & curr_1793=curr_1799(4,5),
+ GP_18(l_2001,res_2002) ::= 
+ res_2002::node<key_13_1998,next_13_1999> * l_2001::lseg<res_2002>&
+ next_13_1999=null
+ or emp&l_2001=null & res_2002=null
+ (4,5),
+ GP_20(l1_2431,l2_2432,res_2433) ::= 
+ l1_2431::lseg<tmp_2427>&l2_2432!=null & res_2433=l1_2431
+ or emp&res_2433=l1_2431 & l2_2432=null
+ (4,5),
+ HP_1617(curr_1791) ::= 
+ curr_1791::node<key_13_1767,next_13_1768> * HP_1617(next_13_1768)&
+ curr_1791!=null
+ or curr_1791::node<key_13_1767,next_13_1768>&curr_1791!=null & 
+    next_13_1768=null
+ (4,5),
+ HP_17(curr_2000) ::= 
+ curr_2000::HP_1617<>&curr_2000!=null
+ or emp&curr_2000=null
+ (4,5),
+ HP_19(l1_2428,l2_2429) ::= 
+ emp&l1_2428=null & l2_2429!=null
+ or emp&l2_2429=null
+ or l1_2428::HP_17<>&l1_2428!=null & l2_2429!=null
+ or emp&l2_2429=null & l1_2428!=null
+ (4,5),
+ HP_2887(curr_2885) ::= 
+ curr_2885::node<key_68_2829,next_68_2830> * HP_2887(next_68_2830)
+ or emp&curr_2885=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase curr_73::HP_2887{}<>&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [lpt_75;tmp_77;curr_73;rpt_76]
+                   emp&curr_73'=curr_73 & lpt_75'=lpt_75 & rpt_76'=rpt_76 & 
+                   tmp_77'=tmp_77 & curr_73=null & curr_73'=null&
+                   {FLOW,(4,5)=__norm#E}[]
+                   
+Checking procedure quick_sort$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_23,GP_24]requires HP_23(l)&
+truerequires emp
+ ensures GP_24(l,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(2;0)HP_23(l)&l!=null --> l::node<key_51_3123,next_51_3124> * 
+HP_3125(next_51_3124,l@NI)&
+true,
+ // PRE
+(2;0)HP_3125(curr_73',l@NI)&true --> curr_73'::HP_2887<>&
+true,
+ // PRE_REC
+(2;0)l'::node<pivot_74',rpt_76'>&rpt_76'=null --> HP_23(l')&
+true,
+ // POST
+(1;2;0)GP_24(l,res)&l!=null --> GP_24(l,res)&
+true,
+ // POST
+(1;0)HP_23(l)&l=null & res=null & res=l --> GP_24(l,res)&
+true]
+
+Procedure quick_sort$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_23(l_3187) ::= l_3187::HP_2887<>(4,5),
+ GP_24(l_3188,res_3189) ::= emp&res_3189=l_3188 & l_3188=null & res_3189=null(4,5),
+ GP_1619(curr_1792,curr_1793) ::= curr_1799::node<key_13_1767,next_13_1768> * curr_1792::lseg<curr_1799>&
+next_13_1768=null & curr_1793=curr_1799(4,5),
+ GP_1665(lpt_75,lpt_75',tmp_77,tmp_77',curr_73,curr_73',rpt_76,rpt_76') ::= emp&curr_73'=curr_73 & lpt_75'=lpt_75 & rpt_76'=rpt_76 & tmp_77'=tmp_77 & 
+curr_73=null & curr_73'=null(4,5),
+ GP_18(l_2001,res_2002) ::= 
+ res_2002::node<key_13_1998,next_13_1999> * l_2001::lseg<res_2002>&
+ next_13_1999=null
+ or emp&l_2001=null & res_2002=null
+ (4,5),
+ GP_20(l1_2431,l2_2432,res_2433) ::= 
+ l1_2431::lseg<tmp_2427>&l2_2432!=null & res_2433=l1_2431
+ or emp&res_2433=l1_2431 & l2_2432=null
+ (4,5),
+ HP_1617(curr_1791) ::= 
+ curr_1791::node<key_13_1767,next_13_1768> * HP_1617(next_13_1768)&
+ curr_1791!=null
+ or curr_1791::node<key_13_1767,next_13_1768>&curr_1791!=null & 
+    next_13_1768=null
+ (4,5),
+ HP_1660(lpt_2883,tmp_2884,curr_2885,rpt_2886) ::= HP_2887(curr_2885)(4,5),
+ HP_17(curr_2000) ::= 
+ curr_2000::HP_1617<>&curr_2000!=null
+ or emp&curr_2000=null
+ (4,5),
+ HP_19(l1_2428,l2_2429) ::= 
+ emp&l1_2428=null & l2_2429!=null
+ or emp&l2_2429=null
+ or l1_2428::HP_17<>&l1_2428!=null & l2_2429!=null
+ or emp&l2_2429=null & l1_2428!=null
+ (4,5),
+ HP_2887(curr_2885) ::= 
+ curr_2885::node<key_68_2829,next_68_2830> * HP_2887(next_68_2830)
+ or emp&curr_2885=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase l::HP_2887{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   emp&res=l & l=null & res=null&{FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 859 invocations 
+8 false contexts at: ( (87,1)  (87,8)  (86,8)  (86,15)  (-1,-1)  (0,0)  (61,1)  (13,3) )
+
+!!! log(small):(0.830027,3705)
+Total verification time: 0.900536 second(s)
+	Time spent in main process: 0.797469 second(s)
+	Time spent in child processes: 0.103067 second(s)
+
+pred_syn_lemma: 14

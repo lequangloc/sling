@@ -1,0 +1,183 @@
+
+!!!Full processing file "avl-delete-rec.dryad.c"
+Parsing file "avl-delete-rec.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E avl-delete-rec.dryad.c -o avl-delete-rec.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of avl_delete: :HP_22
+!!! post_eargs:[x,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+Checking procedure get_height$a_node... Proving binding in method get_height$a_node for spec  EAssume 
+   htrue&{FLOW,(4,5)=__norm#E}[]
+   , Line 0
+
+( [(,1 ); (,2 )]) bind: node  x'::a_node<left_55_1641',right_55_1642',key_55_1643',height_55_1644'>@L cannot be derived from context
+stdhipmem.h_55:15_-1:-1
+
+(Cause of Bind Failure) List of Failesc Context: [FEC(1, 0, 0 )]
+Failed States:
+[
+ Label: [(,1 ); (,2 )]
+ State:
+        fe_kind: MAY
+        fe_name: separation entailment
+        fe_locs: {
+                  fc_message: 
+                   do_unmatched_rhs : x'::a_node<left_55_1641',right_55_1642',key_55_1643',height_55_1644'>@L
+                  fc_current_lhs_flow: {FLOW,(4,11)=__MayError#E}}
+[[ COND ==>  UnmatchedRHSData ==> ]]
+ ]stdhipmem.h_55:15_-1:-1
+
+Context of Verification Failure: 1 File "",Line:0,Col:0
+
+Last Proving Location: 1 File "stdhipmem.h",Line:55,Col:15
+
+Procedure get_height$a_node FAIL.(2)
+
+Exception Failure("bind failure exception") Occurred!
+
+Error(s) detected when checking procedure get_height$a_node
+
+Checking procedure avl_balance$a_node... Proving binding in method avl_balance$a_node for spec  EAssume 
+   htrue&{FLOW,(4,5)=__norm#E}[]
+   , Line 0
+
+( []) bind: node  x'::a_node<left_65_1650',right_65_1651',key_65_1652',height_65_1653'>@L cannot be derived from context
+stdhipmem.h_65:22_-1:-1
+
+(Cause of Bind Failure) List of Failesc Context: [FEC(1, 0, 0 )]
+Failed States:
+[
+ Label: []
+ State:
+        fe_kind: MAY
+        fe_name: separation entailment
+        fe_locs: {
+                  fc_message: 
+                   do_unmatched_rhs : x'::a_node<left_65_1650',right_65_1651',key_65_1652',height_65_1653'>@L
+                  fc_current_lhs_flow: {FLOW,(4,11)=__MayError#E}}
+[[ COND ==>  UnmatchedRHSData ==> ]]
+ ]stdhipmem.h_65:22_-1:-1
+
+Context of Verification Failure: 1 File "",Line:0,Col:0
+
+Last Proving Location: 1 File "stdhipmem.h",Line:65,Col:22
+
+Procedure avl_balance$a_node FAIL.(2)
+
+Exception Failure("bind failure exception") Occurred!
+
+Error(s) detected when checking procedure avl_balance$a_node
+
+Checking procedure avl_find_smallest_h$a_node... Proving binding in method avl_find_smallest_h$a_node for spec  EAssume 
+   htrue&{FLOW,(4,5)=__norm#E}[]
+   , Line 0
+
+( []) bind: node  x'::a_node<left_37_1621',right_37_1622',key_37_1623',height_37_1624'>@L cannot be derived from context
+stdhipmem.h_37:5_-1:-1
+
+(Cause of Bind Failure) List of Failesc Context: [FEC(1, 0, 0 )]
+Failed States:
+[
+ Label: []
+ State:
+        fe_kind: MAY
+        fe_name: separation entailment
+        fe_locs: {
+                  fc_message: 
+                   do_unmatched_rhs : x'::a_node<left_37_1621',right_37_1622',key_37_1623',height_37_1624'>@L
+                  fc_current_lhs_flow: {FLOW,(4,11)=__MayError#E}}
+[[ COND ==>  UnmatchedRHSData ==> ]]
+ ]stdhipmem.h_37:5_-1:-1
+
+Context of Verification Failure: 1 File "",Line:0,Col:0
+
+Last Proving Location: 1 File "stdhipmem.h",Line:37,Col:5
+
+Procedure avl_find_smallest_h$a_node FAIL.(2)
+
+Exception Failure("bind failure exception") Occurred!
+
+Error(s) detected when checking procedure avl_find_smallest_h$a_node
+
+Checking procedure avl_delete$a_node~int... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_22,GP_23]requires HP_22(x)&
+truerequires emp
+ ensures GP_23(x,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(2;0)HP_22(x)&
+x!=null --> x::a_node<left_18_1982,right_18_1983,key_18_1984,height_18_1985> * 
+HP_1986(left_18_1982,x@NI) * HP_1987(right_18_1983,x@NI)&
+true,
+ // PRE_REC
+(2;2;2;1;2;0)HP_1987(right_18_1983,x@NI) * (htrue)&
+right_18_1983!=null |#| x::a_node<left_18_1982,right_18_1983,key_18_1984,height_18_1985>&
+left_18_1982!=null --> HP_22(right_18_1983)&
+true,
+ // PRE_REC
+(1;2;2;0)HP_1986(left_100',x@NI)&
+true |#| x::a_node<left_100',right_18_1983,key_18_1984,height_18_1985>&
+true --> HP_22(left_100')&
+true,
+ // PRE_REC
+(2;2;2;0)HP_1987(right_18_1983,x@NI)&
+true |#| x::a_node<left_18_1982,right_18_1983,key_18_1984,height_18_1985>&
+true --> HP_22(right_18_1983)&
+true,
+ // POST
+(1;0)HP_22(res)&res=null & x=null & x=res --> GP_23(x,res)&
+true,
+ // POST
+(2;2;2;1;2;0)HP_1986(left_18_1982,x@NI) * (htrue) * 
+GP_23(right_18_1983,tmp___2122) * (htrue)&left_18_1982!=null & 
+right_18_1983!=null --> GP_23(x,res)&
+true,
+ // POST
+(1;2;2;0)HP_1987(right_18_1983,x@NI) * GP_23(left_18_1982,new_2123) * 
+(htrue)&true --> GP_23(x,res)&
+true,
+ // POST
+(2;2;2;0)HP_1986(left_18_1982,x@NI) * 
+GP_23(right_18_1983,new_right___2124) * (htrue)&true --> GP_23(x,res)&
+true]
+
+Procedure avl_delete$a_node~int SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_22(x_2209) ::= 
+ HP_22(right_18_2137) * 
+ x_2209::a_node<left_18_2136,right_18_2137,key_18_2134,height_18_2135> * 
+ HP_22(left_18_2136)
+ or emp&x_2209=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase x::HP_22{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   GP_23(x,res)&{FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 250 invocations 
+18 false contexts at: ( (26,4)  (25,4)  (24,28)  (39,4)  (39,11)  (37,4)  (35,4)  (33,12)  (33,26)  (31,8)  (31,15)  (-1,-1)  (30,10)  (29,4)  (28,4)  (27,29)  (27,10)  (23,4) )
+
+!!! log(small):(0.220513,746)
+Total verification time: 0.558838 second(s)
+	Time spent in main process: 0.485026 second(s)
+	Time spent in child processes: 0.073812 second(s)
+
+pred_syn_lemma: 2

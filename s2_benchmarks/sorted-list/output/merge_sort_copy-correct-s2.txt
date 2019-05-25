@@ -1,0 +1,95 @@
+
+!!!Full processing file "merge_sort_copy.dryad.c"
+Parsing file "merge_sort_copy.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E merge_sort_copy.dryad.c -o merge_sort_copy.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of merge_sort_copy: :HP_19
+!!! post_eargs:[l1,l2,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+Checking procedure merge_sort_copy$node~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_19,GP_20]requires HP_19(l1,l2)&
+truerequires emp
+ ensures GP_20(l1,l2,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(2;2;0)HP_19(l1,l2)&l2!=null & 
+l1!=null --> l1::node<key_18_1702,next_18_1703> * 
+HP_1704(next_18_1703,l2,l1@NI)&
+true,
+ // BIND
+(2;2;0)HP_1704(next_18_1703,l2',l1@NI)&
+l2'!=null |#| l1::node<key_18_1702,next_18_1703>&
+true --> l2'::node<key_18_1709,next_18_1710> * 
+HP_1711(next_18_1710,next_18_1703,l1@NI,l2'@NI)&
+true,
+ // PRE_REC
+(1;2;2;0)HP_1711(next_18_1710,next_18_1703,l1@NI,l2@NI)&
+true |#| l1::node<key_18_1702,next_18_1703> * 
+l2::node<key_18_1709,next_18_1710>&true --> HP_19(next_18_1703,l2)&
+true,
+ // POST
+(1;0)HP_19(l1,l2)&l1=null & res=l2 --> GP_20(l1,l2,res)&
+true,
+ // POST
+(1;2;0)HP_19(l1,l2)&l2=null & l1!=null & res=l1 --> GP_20(l1,l2,res)&
+true,
+ // POST
+(1;2;2;0)l1::node<key_18_1702,next_18_1703> * 
+GP_20(next_18_1703,l2,tmp_1801) * res::node<key_18_1702,tmp_1801>&
+true --> GP_20(l1,l2,res)&
+true,
+ // POST
+(2;2;2;0)l2::node<key_18_1709,next_18_1710> * 
+GP_20(l1,next_18_1710,tmp___1802) * res::node<key_18_1709,tmp___1802>&
+true --> GP_20(l1,l2,res)&
+true]
+
+Procedure merge_sort_copy$node~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_19(l1_1819,l2_1820) ::= 
+ emp&l2_1820!=null & l1_1819=null
+ or emp&l1_1819!=null & l2_1820=null
+ or l2_1820::node<key_18_1709,next_18_1710> * 
+    l1_1819::node<key_18_1811,next_18_1812> * HP_19(next_18_1812,l2_1820)
+ or emp&l1_1819=null
+ (4,5),
+ GP_20(l1_1823,l2_1824,res_1825) ::= 
+ l1_1823::node<key_18_1702,next_18_1703> * 
+ GP_20(next_18_1703,l2_1824,tmp_1801) * res_1825::node<key_18_1702,tmp_1801>
+ or l2_1824::node<key_18_1709,next_18_1710> * 
+    GP_20(l1_1823,next_18_1710,tmp___1802) * 
+    res_1825::node<key_18_1709,tmp___1802>
+ or emp&l1_1823!=null & res_1825=l1_1823 & l2_1824=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase l1::HP_19{}<l2>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   (exists l1: l2::GP_20{}<l1,res>&{FLOW,(4,5)=__norm#E})[]
+                   Stop Omega... 303 invocations 
+0 false contexts at: ()
+
+!!! log(small):(0.211157,907)
+Total verification time: 0.463241 second(s)
+	Time spent in main process: 0.398054 second(s)
+	Time spent in child processes: 0.065187 second(s)
+
+pred_syn_lemma: 2

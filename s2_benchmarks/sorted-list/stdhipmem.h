@@ -28,8 +28,8 @@ void free(SNnode * p) __attribute__ ((noreturn))
 /*@ lseg<p> == self=p 
   or self::node<_,n> * n::lseg<p> & self!=null; */
 
-SNnode * find_last_sorted(SNnode * l)
-/*@
+//SNnode * find_last_sorted(SNnode * l)
+/*
   requires l::lseg<null>
   ensures res::lseg<null>;
 */;

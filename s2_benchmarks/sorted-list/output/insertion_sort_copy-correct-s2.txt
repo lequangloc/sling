@@ -1,0 +1,143 @@
+
+!!!Full processing file "insertion_sort_copy.dryad.c"
+Parsing file "insertion_sort_copy.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E insertion_sort_copy.dryad.c -o insertion_sort_copy.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of sorted_insert: :HP_19
+!!! post_eargs:[x,res]
+!!! generate unknown predicate for Pre synthesis of insertion_sort_copy: :HP_21
+!!! post_eargs:[l,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+Checking procedure sorted_insert$node~int... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[ HP_19,GP_20]requires HP_19(x)&truerequires emp
+ ensures GP_20(x,res)&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(2;0)HP_19(x)&x!=null --> x::node<key_16_1738,next_16_1739> * 
+HP_1740(next_16_1739,x@NI)&
+true,
+ // PRE_REC
+(1;2;0)HP_1740(next_16_1739,x@NI)&true |#| x::node<key_16_1738,next_16_1739>&
+true --> HP_19(next_16_1739)&
+true,
+ // POST
+(1;0)HP_19(v_node_12_1788) * res::node<k,v_node_12_1788>&
+v_node_12_1788=null --> GP_20(v_node_12_1788,res)&
+true,
+ // POST
+(1;2;0)GP_20(next_16_1739,tmp___1790) * res::node<key_16_1738,tmp___1790>&
+x=res --> GP_20(x,res)&
+true,
+ // POST
+(2;2;0)HP_1740(next_16_1739,x@NI) * res::node<k',x>&true --> GP_20(x,res)&
+true]
+
+Procedure sorted_insert$node~int SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_19(x_1797) ::= 
+ HP_19(next_16_1795) * x_1797::node<key_16_1794,next_16_1795>
+ or emp&x_1797=null
+ (4,5),
+ GP_20(v_node_12_1798,res_1799) ::= 
+ GP_20(next_16_1739,tmp___1790) * res_1799::node<k,tmp___1790>&
+ v_node_12_1798=res_1799
+ or res_1799::node<k,v_node_12_1798> * HP_19(next_16_1739)
+ or res_1799::node<k,v_node_12_1798>&v_node_12_1798=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase x::HP_19{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   (exists x: res::GP_20{}<x>&{FLOW,(4,5)=__norm#E})[]
+                   
+Checking procedure insertion_sort_copy$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_21,GP_22]requires HP_21(l)&
+truerequires emp
+ ensures GP_22(l,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(2;0)HP_21(l)&l!=null --> l::node<key_42_1847,next_42_1848> * 
+HP_1849(next_42_1848,l@NI)&
+true,
+ // PRE_REC
+(2;0)HP_1849(next_42_1848,l@NI)&true |#| l::node<key_42_1847,next_42_1848>&
+true --> HP_21(next_42_1848)&
+true,
+ // PRE
+(2;0)GP_22(next_42_1848,tl_74')&true |#| l::node<key_42_1847,next_42_1848>&
+true --> tl_74'::HP_19<>&
+true,
+ // POST
+(1;0)HP_21(l)&l=null & res=null & res=l --> GP_22(l,res)&
+true,
+ // POST
+(2;0)l::node<key_42_1847,next_42_1848> * res::GP_20<x_1867>&
+true --> GP_22(l,res)&
+true]
+
+Procedure insertion_sort_copy$node SUCCESS.
+
+WARNING: _0:0_0:0:FAIL: Can not prove:
+ (2;0)next_42_1848::GP_22<tl_74'> |#| l::node<key_42_1847,next_42_1848> --> 
+  tl_74'::HP_19<>
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_21(l_1873) ::= l_1873::HP_19<>(4,5),
+ GP_22(l_1874,res_1875) ::= 
+ l_1874::node<key_42_1847,next_42_1848> * res_1875::GP_20<x_1867>
+ or emp&l_1874=null & res_1875=null
+ (4,5),
+ GP_20(v_node_12_1798,res_1799) ::= 
+ GP_20(next_16_1739,tmp___1790) * res_1799::node<k,tmp___1790>&
+ v_node_12_1798=res_1799
+ or res_1799::node<k,v_node_12_1798> * HP_19(next_16_1739)
+ or res_1799::node<k,v_node_12_1798>&v_node_12_1798=null
+ (4,5),
+ HP_19(x_1797) ::= 
+ HP_19(next_16_1795) * x_1797::node<key_16_1794,next_16_1795>
+ or emp&x_1797=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase l::HP_19{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   l::GP_22{}<res>&{FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 307 invocations 
+0 false contexts at: ()
+
+!!! log(small):(0.210997,1050)
+Total verification time: 0.449767 second(s)
+	Time spent in main process: 0.397393 second(s)
+	Time spent in child processes: 0.052374 second(s)
+
+pred_syn_lemma: 6
