@@ -1,0 +1,123 @@
+
+!!!Full processing file "g_list_reverse.dryad.c"
+Parsing file "g_list_reverse.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E g_list_reverse.dryad.c -o g_list_reverse.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of g_list_reverse: :HP_20
+!!! post_eargs:[list,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+Checking procedure while_19_2$node~node~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[ H1_rev,H2_rev,G_rev]requires H1_rev(curr_62) * H2_rev(last_61)&
+truerequires emp
+ ensures G_rev(last_61,last_61')&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;1;0)H1_rev(curr_62)&
+curr_62!=null --> curr_62::node<key_32_1675,next_32_1676,prev_32_1677> * 
+HP_1678(next_32_1676,curr_62@NI) * HP_1679(prev_32_1677,curr_62@NI)&
+true,
+ // PRE_REC
+(1;1;0)HP_1678(curr_62',curr_62@NI)&
+true |#| curr_62::node<key_32_1675,prev_32_1677,curr_62'>&
+true --> H1_rev(curr_62')&
+true,
+ // PRE_REC
+(1;1;0)HP_1679(prev_32_1677,curr_62@NI)&
+true |#| curr_62::node<key_32_1675,prev_32_1677,curr_62'>&
+true --> H2_rev(curr_62)&
+true,
+ // POST
+(1;1;0)H2_rev(last_61) * G_rev(curr_1681,last_61')&
+true --> G_rev(last_61,last_61')&
+true,
+ // POST
+(2;1;0)H1_rev(curr_62) * H2_rev(last_61)&curr_62=null & 
+last_61'=last_61 --> G_rev(last_61,last_61')&
+true]
+
+Procedure while_19_2$node~node~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ H1_rev(curr_1733) ::= 
+ curr_1733::node<key_32_1721,next_32_1723,DP_DP_HP_1679> * 
+ H1_rev(next_32_1723)
+ or H1_rev(next_32_1723) * 
+    curr_1733::node<key_32_1721,next_32_1723,prev_32_1722>
+ or H1_rev(curr_1733)
+ or emp&curr_1733=null
+ (4,5),
+ H2_rev(last_1720) ::= emp&last_1720=DP_DP_DP_1701 & last_61'=last_1720(4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase curr_62::H1_rev{}<> * last_61::H2_rev{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [last_61;last_63;curr_62]
+                   G_rev(last_61,last_61')&{FLOW,(4,5)=__norm#E}[]
+                   
+Checking procedure g_list_reverse$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_20,GP_21]requires HP_20(list)&
+truerequires emp
+ ensures GP_21(list,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // PRE
+(0)HP_20(curr_62')&true --> curr_62'::H1_rev<>&
+true,
+ // POST
+(0)emp&true --> GP_21(list,res)&
+true]
+
+Procedure g_list_reverse$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_20(curr_1788) ::= curr_1788::H1_rev<>(4,5),
+ GP_21(list_1789,res_1790) ::= emp(4,5),
+ H1_rev(curr_1733) ::= 
+ curr_1733::node<key_32_1721,next_32_1723,DP_DP_HP_1679> * 
+ H1_rev(next_32_1723)
+ or H1_rev(next_32_1723) * 
+    curr_1733::node<key_32_1721,next_32_1723,prev_32_1722>
+ or H1_rev(curr_1733)
+ or emp&curr_1733=null
+ (4,5),
+ H2_rev(last_1720) ::= emp&last_1720=DP_DP_DP_1701 & last_61'=last_1720(4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase list::H1_rev{}<>&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   emp&{FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 129 invocations 
+1 false contexts at: ( (19,2) )
+
+!!! log(small):(0.097152,475)
+Total verification time: 0.307372 second(s)
+	Time spent in main process: 0.283205 second(s)
+	Time spent in child processes: 0.024167 second(s)
+
+pred_syn_lemma: 4

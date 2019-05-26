@@ -1,0 +1,124 @@
+
+!!!Full processing file "g_list_last.dryad.c"
+Parsing file "g_list_last.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E g_list_last.dryad.c -o g_list_last.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of g_list_last: :HP_17
+!!! post_eargs:[list,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_14_4$node: :HP_1573
+!!! post_eargs:[curr_58,curr_58']
+Checking procedure while_14_4$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1573,GP_1575]requires HP_1573(curr_58)&
+truerequires emp
+ ensures GP_1575(curr_58,curr_58')&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;0)HP_1573(curr_58)&
+true --> curr_58::node<key_14_1625,next_14_1626,prev_14_1627> * 
+HP_1628(next_14_1626,curr_58@NI) * HP_1629(prev_14_1627,curr_58@NI)&
+true,
+ // PRE_REC
+(1;1;0)HP_1628(curr_58',curr_58@NI)&
+curr_58'!=null |#| curr_58::node<key_14_1625,curr_58',prev_14_1627>&
+true --> HP_1573(curr_58')&
+true,
+ // POST
+(1;1;0)HP_1629(prev_14_1627,curr_58@NI) * GP_1575(next_14_1626,curr_58')&
+next_14_1626!=null --> GP_1575(curr_58,curr_58')&
+true,
+ // POST
+(2;1;0)HP_1629(prev_14_1627,curr_58@NI)&
+curr_58'=curr_58 --> GP_1575(curr_58,curr_58')&
+true,
+ // POST
+(2;1;0)HP_1628(next_14_1626,curr_58@NI)&next_14_1626=null --> emp&
+true]
+
+Procedure while_14_4$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_1573(curr_1653) ::= 
+ curr_1653::node<key_14_1625,next_14_1626,DP_DP_HP_1629> * 
+ HP_1573(next_14_1626)&curr_1653!=null
+ or curr_1653::node<key_14_1625,next_14_1626,DP_DP_HP_1629>&
+    curr_1653!=null & next_14_1626=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase curr_58::HP_1573{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [curr_58]
+                   GP_1575(curr_58,curr_58')&{FLOW,(4,5)=__norm#E}[]
+                   
+Checking procedure g_list_last$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_17,GP_18]requires HP_17(list)&
+truerequires emp
+ ensures GP_18(list,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // PRE
+(1;0)HP_17(curr_58')&curr_58'!=null --> curr_58'::HP_1573<>&
+true,
+ // POST
+(1;0)emp&list!=null --> GP_18(list,res)&
+true,
+ // POST
+(2;0)HP_17(list)&list=null & res=null & res=list --> GP_18(list,res)&
+true]
+
+Procedure g_list_last$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_17(curr_1691) ::= 
+ curr_1691::HP_1573<>&curr_1691!=null
+ or emp&curr_1691=null
+ (4,5),
+ GP_18(list_1692,res_1693) ::= emp&res_1693=list_1692 & list_1692=null & res_1693=null(4,5),
+ HP_1573(curr_1653) ::= 
+ curr_1653::node<key_14_1625,next_14_1626,DP_DP_HP_1629> * 
+ HP_1573(next_14_1626)&curr_1653!=null
+ or curr_1653::node<key_14_1625,next_14_1626,DP_DP_HP_1629>&
+    curr_1653!=null & next_14_1626=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase list::HP_17{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   emp&res=list & list=null & res=null&
+                   {FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 138 invocations 
+1 false contexts at: ( (14,4) )
+
+!!! log(small):(0.046444,419)
+Total verification time: 0.288553 second(s)
+	Time spent in main process: 0.261667 second(s)
+	Time spent in child processes: 0.026886 second(s)
+
+pred_syn_lemma: 4
