@@ -1,0 +1,204 @@
+
+!!!Full processing file "mem_region_dll_ops.dryad.c"
+Parsing file "mem_region_dll_ops.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E mem_region_dll_ops.dryad.c -o mem_region_dll_ops.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of memory_region_init: :HP_36
+!!! post_eargs:[file_,res]
+!!! post_eargs:[res]
+!!! generate unknown predicate for Pre synthesis of split_memory_region: :HP_40
+!!! post_eargs:[curr,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+Checking procedure memory_region_init$backing_file~int~int~int~int... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_36,GP_37]requires HP_36(file_@NI)&
+truerequires emp
+ ensures GP_37(file_,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // POST
+(0)HP_36(file_@NI) * 
+res::mem_reg<file_,file_offset_,file_size_',start_address_,size_',prev_23_2143,v_mem_reg_23_2144>&
+prev_23_2143=null & v_mem_reg_23_2144=null & 
+v_mem_reg_23_2144=prev_23_2143 --> GP_37(file_,res)&
+true]
+
+Procedure memory_region_init$backing_file~int~int~int~int SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_36(file_) ::= NONE,
+ GP_37(file_2147,res_2148) ::= HP_36(file_2147) * 
+res_2148::mem_reg<file_2147,file_offset_,file_size_',start_address_,size_',prev_23_2143,v_mem_reg_23_2144>&
+prev_23_2143=null & v_mem_reg_23_2144=null(4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase emp&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   (exists file_,file_offset_,file_size_',start_address_,
+                   size_',prev_23_2143,
+                   v_mem_reg_23_2144: res::mem_reg<file_,file_offset_,file_size_',start_address_,size_',prev_23_2143,v_mem_reg_23_2144>&
+                   prev_23_2143=null & v_mem_reg_23_2144=null&
+                   {FLOW,(4,5)=__norm#E})[]
+                   
+Checking procedure memory_region_create_user_space_region$... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape GP_39]requires emp&truerequires emp
+ ensures GP_39(res)&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // POST
+(0)res::mem_reg<file_2225,file_offset_2224,file_size_2223,start_address_2222,size_2221,next_37_2272,tmp___2273> * 
+tmp___2273::mem_reg<file_2265,file_offset_2264,file_size_2263,start_address_2262,size_2261,res,next_37_2272>&
+next_37_2272=null --> GP_39(res)&
+true]
+
+Procedure memory_region_create_user_space_region$ SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ GP_39(res_2274) ::= res_2274::mem_reg<file_2225,file_offset_2224,file_size_2223,start_address_2222,size_2221,next_37_2272,tmp___2273> * 
+tmp___2273::mem_reg<file_2265,file_offset_2264,file_size_2263,start_address_2262,size_2261,res_2274,next_37_2272>&
+next_37_2272=null(4,5),
+ GP_37(file_2147,res_2148) ::= HP_36(file_2147) * 
+res_2148::mem_reg<file_2147,file_offset_,file_size_',start_address_,size_',prev_23_2143,v_mem_reg_23_2144>&
+prev_23_2143=null & v_mem_reg_23_2144=null(4,5),
+ HP_36(file_) ::= NONE]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase emp&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   (exists file_2225,file_offset_2224,file_size_2223,
+                   start_address_2222,size_2221,tmp___2273,file_2265,
+                   file_offset_2264,file_size_2263,start_address_2262,
+                   size_2261,
+                   next_37_2272: res::mem_reg<file_2225,file_offset_2224,file_size_2223,start_address_2222,size_2221,next_37_2272,tmp___2273> * 
+                   tmp___2273::mem_reg<file_2265,file_offset_2264,file_size_2263,start_address_2262,size_2261,res,next_37_2272>&
+                   next_37_2272=null&{FLOW,(4,5)=__norm#E})[]
+                   
+Checking procedure split_memory_region$mem_reg~int... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_40,GP_41]requires HP_40(curr)&
+truerequires emp
+ ensures GP_41(curr,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(0)HP_40(curr)&
+true --> curr::mem_reg<file_49_2334,file_offset_49_2335,file_size_49_2336,start_address_49_2337,size_49_2338,prev_49_2339,next_49_2340> * 
+HP_2341(file_49_2334,curr@NI) * HP_2342(prev_49_2339,curr@NI) * 
+HP_2343(next_49_2340,curr@NI)&
+true,
+ // BIND
+(1;1;2;0)HP_2343(next_49_2340,curr@NI)&
+next_49_2340!=null |#| curr::mem_reg<file_49_2334,file_offset_49_2335,file_size_49_2336,start_address_49_2337,offset',prev_49_2339,next_49_2340> * 
+next_104'::mem_reg<file_2492,file_offset_2491,file_size_2490,start_address_2489,size_2488,curr,next_49_2340>&
+true --> next_49_2340::mem_reg<file_67_2515,file_offset_67_2516,file_size_67_2517,start_address_67_2518,size_67_2519,prev_67_2520,next_67_2521> * 
+HP_2522(file_67_2515,curr@NI,next_49_2340@NI) * 
+HP_2523(prev_67_2520,curr@NI,next_49_2340@NI) * 
+HP_2524(next_67_2521,curr@NI,next_49_2340@NI)&
+true,
+ // BIND
+(1;2;2;0)HP_2343(next_49_2340,curr@NI)&
+next_49_2340!=null |#| curr::mem_reg<file_49_2334,file_offset_49_2335,offset',start_address_49_2337,offset',prev_49_2339,next_49_2340> * 
+next_104'::mem_reg<file_2475,file_offset_2474,file_size_2473,start_address_2472,size_2471,curr,next_49_2340>&
+true --> next_49_2340::mem_reg<file_67_2525,file_offset_67_2526,file_size_67_2527,start_address_67_2528,size_67_2529,prev_67_2530,next_67_2531> * 
+HP_2532(file_67_2525,curr@NI,next_49_2340@NI) * 
+HP_2533(prev_67_2530,curr@NI,next_49_2340@NI) * 
+HP_2534(next_67_2531,curr@NI,next_49_2340@NI)&
+true,
+ // POST
+(1;0)HP_2341(file_49_2334,curr@NI) * HP_2342(prev_49_2339,curr@NI) * 
+HP_2343(next_49_2340,curr@NI)&res=null --> GP_41(curr,res)&
+true,
+ // POST
+(1;1;2;0)HP_2341(file_49_2334,curr@NI) * HP_2342(prev_49_2339,curr@NI) * 
+res::mem_reg<file_2492,file_offset_2491,file_size_2490,start_address_2489,size_2488,curr,next_69_2539> * 
+HP_2522(file_67_2515,curr@NI,next_69_2539@NI) * 
+HP_2524(next_67_2521,curr@NI,next_69_2539@NI)&true --> GP_41(curr,res)&
+true,
+ // POST
+(2;1;2;0)HP_2341(file_49_2334,curr@NI) * HP_2342(prev_49_2339,curr@NI) * 
+res::mem_reg<file_2492,file_offset_2491,file_size_2490,start_address_2489,size_2488,curr,next_49_2340>&
+next_49_2340=null --> GP_41(curr,res)&
+true,
+ // POST
+(2;1;2;0)HP_2343(next_49_2340,curr@NI)&next_49_2340=null --> emp&
+true,
+ // POST
+(1;2;2;0)HP_2341(file_49_2334,curr@NI) * HP_2342(prev_49_2339,curr@NI) * 
+res::mem_reg<file_2475,file_offset_2474,file_size_2473,start_address_2472,size_2471,curr,next_69_2541> * 
+HP_2532(file_67_2525,curr@NI,next_69_2541@NI) * 
+HP_2534(next_67_2531,curr@NI,next_69_2541@NI)&true --> GP_41(curr,res)&
+true]
+
+Procedure split_memory_region$mem_reg~int SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_40(curr_2571) ::= 
+ curr_2571::mem_reg<DP_DP_HP_2341,file_offset_49_2335,file_size_49_2336,start_address_49_2337,size_49_2338,DP_DP_HP_2342,next_49_2340> * 
+ next_49_2340::mem_reg<DP_DP_HP_2532,file_offset_67_2516,file_size_67_2517,start_address_67_2518,size_67_2519,DP_DP_HP_2533,DP_DP_HP_2534>
+ or curr_2571::mem_reg<DP_DP_HP_2341,file_offset_49_2335,file_size_49_2336,start_address_49_2337,size_49_2338,DP_DP_HP_2342,next_49_2340>&
+    next_49_2340=null
+ (4,5),
+ GP_41(curr_2575,res_2576) ::= 
+ emp&res_2576=null
+ or res_2576::mem_reg<file_2492,file_offset_2491,file_size_2490,start_address_2489,size_2488,curr_2575,next_69_2539>
+ or res_2576::mem_reg<file_2492,file_offset_2491,file_size_2490,start_address_2489,size_2488,curr_2575,next_49_2340>&
+    next_49_2340=null
+ or res_2576::mem_reg<file_2475,file_offset_2474,file_size_2473,start_address_2472,size_2471,curr_2575,next_69_2541>
+ or emp&res_2576=null
+ (4,5),
+ GP_37(file_2147,res_2148) ::= HP_36(file_2147) * 
+res_2148::mem_reg<file_2147,file_offset_,file_size_',start_address_,size_',prev_23_2143,v_mem_reg_23_2144>&
+prev_23_2143=null & v_mem_reg_23_2144=null(4,5),
+ GP_39(res_2274) ::= res_2274::mem_reg<file_2225,file_offset_2224,file_size_2223,start_address_2222,size_2221,next_37_2272,tmp___2273> * 
+tmp___2273::mem_reg<file_2265,file_offset_2264,file_size_2263,start_address_2262,size_2261,res_2274,next_37_2272>&
+next_37_2272=null(4,5),
+ HP_36(file_) ::= NONE]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase curr::HP_40{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   (exists curr: res::GP_41{}<curr>&{FLOW,(4,5)=__norm#E})[]
+                   Stop Omega... 346 invocations 
+0 false contexts at: ()
+
+!!! log(small):(0.442565,1172)
+Total verification time: 0.839711 second(s)
+	Time spent in main process: 0.726969 second(s)
+	Time spent in child processes: 0.112742 second(s)
+
+pred_syn_lemma: 6
