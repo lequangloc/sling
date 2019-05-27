@@ -1,0 +1,120 @@
+
+!!!Full processing file "g_slist_reverse.dryad.c"
+Parsing file "g_slist_reverse.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E g_slist_reverse.dryad.c -o g_slist_reverse.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of g_slist_reverse: :HP_19
+!!! post_eargs:[list,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_12_1$node~node~node: :HP_1690
+!!! post_eargs:[next_84,next_84',prev_83,prev_83',list,list']
+Checking procedure while_12_1$node~node~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1690,GP_1694]requires HP_1690(next_84,prev_83,list)&
+truerequires emp
+ ensures GP_1694(next_84,next_84',prev_83,prev_83',list,list')&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;1;0)HP_1690(next_84,prev_83,list)&
+list!=null --> list::node<key_20_1792,next_20_1793> * 
+HP_1794(next_20_1793,next_84,prev_83,list@NI)&
+true,
+ // PRE_REC
+(1;1;0)HP_1794(list',next_84,prev_1800,list@NI)&
+next_84'=list' |#| list::node<key_20_1792,prev_1800>&
+true --> HP_1690(next_84',list,list')&
+true,
+ // POST
+(1;1;0)GP_1694(next_21_1799,next_84',list,prev_83',next_21_1799,list')&
+true --> GP_1694(next_84,next_84',prev_83,prev_83',list,list')&
+true,
+ // POST
+(2;1;0)HP_1690(next_84,prev_83,list)&list=null & list'=null & list'=list & 
+next_84'=next_84 & 
+prev_83'=prev_83 --> GP_1694(next_84,next_84',prev_83,prev_83',list,list')&
+true]
+
+Procedure while_12_1$node~node~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_1690(next_1820,prev_1821,list_1822) ::= HP_1823(list_1822)(4,5),
+ GP_1694(next_84,next_84',prev_83,prev_83',list,list') ::= emp&list'=list & next_84'=next_84 & prev_83'=prev_83 & list=null & 
+list'=null(4,5),
+ HP_1823(list_1822) ::= 
+ list_1822::node<key_20_1792,next_20_1793> * HP_1823(next_20_1793)
+ or emp&list_1822=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase list::HP_1823{}<>&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [next_84;prev_83;list]
+                   emp&list'=list & next_84'=next_84 & prev_83'=prev_83 & 
+                   list=null & list'=null&{FLOW,(4,5)=__norm#E}[]
+                   
+Checking procedure g_slist_reverse$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_19,GP_20]requires HP_19(list)&
+truerequires emp
+ ensures GP_20(list,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // PRE
+(0)HP_19(list)&true --> list::HP_1823<>&
+true,
+ // POST
+(0)emp&list=null & res=null & res=list --> GP_20(list,res)&
+true]
+
+Procedure g_slist_reverse$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_19(list_1904) ::= list_1904::HP_1823<>(4,5),
+ GP_20(list_1905,res_1906) ::= emp&res_1906=list_1905 & list_1905=null & res_1906=null(4,5),
+ GP_1694(next_84,next_84',prev_83,prev_83',list,list') ::= emp&list'=list & next_84'=next_84 & prev_83'=prev_83 & list=null & 
+list'=null(4,5),
+ HP_1690(next_1820,prev_1821,list_1822) ::= HP_1823(list_1822)(4,5),
+ HP_1823(list_1822) ::= 
+ list_1822::node<key_20_1792,next_20_1793> * HP_1823(next_20_1793)
+ or emp&list_1822=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase list::HP_1823{}<>&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   emp&res=list & list=null & res=null&
+                   {FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 175 invocations 
+1 false contexts at: ( (12,1) )
+
+!!! log(small):(0.078694,542)
+Total verification time: 0.349663 second(s)
+	Time spent in main process: 0.316969 second(s)
+	Time spent in child processes: 0.032694 second(s)
+
+pred_syn_lemma: 4

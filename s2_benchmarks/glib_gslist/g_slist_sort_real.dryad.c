@@ -3,7 +3,12 @@
 
 
 Node * g_slist_sort_merge(Node * l1, Node * l2)
-{
+/*@
+requires true
+ ensures true;
+*/;
+
+/*{
 	Node * list, * l, * y;  
 	list = (Node *) malloc(sizeof(Node));
 
@@ -35,14 +40,15 @@ Node * g_slist_sort_merge(Node * l1, Node * l2)
 		l->next = l2;
 	}
 	return list_next;
-}
+        }*/
+
 
 Node * g_slist_sort_real(Node * list)
 /*@
  infer[@shape]
  requires true
  ensures true;
- */
+*/
 {
 	Node * l1, * l2;
 

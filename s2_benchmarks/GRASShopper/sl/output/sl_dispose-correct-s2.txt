@@ -1,0 +1,120 @@
+
+!!!Full processing file "sl_dispose.dryad.c"
+Parsing file "sl_dispose.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E sl_dispose.dryad.c -o sl_dispose.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of dispose: :HP_22
+!!! post_eargs:[lst]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_13_2$node~node: :HP_1688
+!!! post_eargs:[curr_79,curr_79',lst,lst']
+Checking procedure while_13_2$node~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1688,GP_1691]requires HP_1688(curr_79,lst)&
+truerequires emp
+ ensures GP_1691(curr_79,curr_79',lst,lst')&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;1;0)HP_1688(curr_79,lst)&lst!=null --> lst::node<next_21_1750> * 
+HP_1751(next_21_1750,curr_79,lst@NI)&
+true,
+ // PRE_REC
+(1;1;0)HP_1751(lst',curr_79,curr_79'@NI)&
+curr_79'=null |#| curr_79'::node<lst'>&lst=null --> HP_1688(curr_79',lst')&
+true,
+ // POST
+(2;1;0)HP_1688(curr_79,lst)&lst=null & lst'=null & curr_79'=curr_79 & 
+lst'=lst --> GP_1691(curr_79,curr_79',lst,lst')&
+true]
+
+Procedure while_13_2$node~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ GP_1691(curr_1771,curr_1772,lst_1773,lst_1774) ::= emp&curr_1772=curr_1771 & lst_1774=lst_1773 & lst_1773=null & lst_1774=null(4,5),
+ HP_1688(curr_1769,lst_1770) ::= 
+ lst_1770::node<next_21_1750> * HP_1775(next_21_1750,lst_1770)
+ or emp&lst_1770=null
+ (4,5),
+ HP_1775(lst_1763,curr_1765) |#| 
+                                 emp&lst=null
+                                 or emp&lst=null
+                                  ::= 
+ lst_1763::node<next_21_1750> * HP_1775(next_21_1750,lst_1763)&curr_1765=null
+ or emp&curr_1765=null & lst_1763=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase curr_79::HP_1688{}<lst>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [curr_79;lst]
+                   emp&curr_79'=curr_79 & lst'=lst & lst=null & lst'=null&
+                   {FLOW,(4,5)=__norm#E}[]
+                   
+Checking procedure dispose$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_22,GP_23]requires HP_22(lst)&
+truerequires emp
+ ensures GP_23(lst)&true{,(4,5)=__norm#E};
+
+!!!>>>>>> mismatch ptr curr_1841::HP_1688<lst> is not found (or inst) in the lhs <<<<<<
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // POST
+(0)HP_22(lst)&lst=null --> GP_23(lst)&
+true]
+
+Procedure dispose$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_22(lst_1846) ::= emp&lst_1846=null(4,5),
+ GP_23(lst_1847) ::= HP_22(lst_1847)(4,5),
+ GP_1691(curr_1771,curr_1772,lst_1773,lst_1774) ::= emp&curr_1772=curr_1771 & lst_1774=lst_1773 & lst_1773=null & lst_1774=null(4,5),
+ HP_1688(curr_1769,lst_1770) ::= 
+ lst_1770::node<next_21_1750> * HP_1775(next_21_1750,lst_1770)
+ or emp&lst_1770=null
+ (4,5),
+ HP_1775(lst_1763,curr_1765) |#| 
+                                 emp&lst=null
+                                 or emp&lst=null
+                                  ::= 
+ lst_1763::node<next_21_1750> * HP_1775(next_21_1750,lst_1763)&curr_1765=null
+ or emp&curr_1765=null & lst_1763=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase emp&lst=null&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   lst::HP_22{}<>&{FLOW,(1,30)=__flow#E}[]
+                   Stop Omega... 132 invocations 
+1 false contexts at: ( (13,2) )
+
+!!! log(small):(0.039173,408)
+Total verification time: 0.284522 second(s)
+	Time spent in main process: 0.255388 second(s)
+	Time spent in child processes: 0.029134 second(s)
+
+pred_syn_lemma: 4

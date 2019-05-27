@@ -1,0 +1,175 @@
+
+!!!Full processing file "g_slist_remove_link.dryad.c"
+Parsing file "g_slist_remove_link.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E g_slist_remove_link.dryad.c -o g_slist_remove_link.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of g_slist_remove_link: :HP_19
+!!! post_eargs:[list,link,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_19_1$node~node~node~int~node~node: :HP_1695
+!!! post_eargs:[prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list',link]
+Checking procedure while_19_1$node~node~node~int~node~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1695,GP_1700]requires HP_1695(prev_84,tmp_86,tmp_83,list,link@NI)&
+truerequires emp
+ ensures GP_1700(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list',link)&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;1;1;0)HP_1695(prev_84,tmp_86,tmp_83,list,link@NI)&link!=null & 
+tmp_83=link --> link::node<key_28_1822,next_28_1823> * 
+HP_1824(next_28_1823,prev_84,tmp_86,list,link@NI,link@NI)&
+true,
+ // BIND
+(1;1;1;1;0)HP_1824(next_28_1823,prev_84,tmp_86,list,tmp_83@NI,tmp_83@NI)&
+prev_84!=null |#| tmp_83::node<key_28_1822,next_28_1823>&
+true --> prev_84::node<key_30_1833,next_30_1834> * 
+HP_1835(next_30_1834,next_28_1823,tmp_86,list,tmp_83@NI,tmp_83@NI,prev_84@NI)&
+true,
+ // BIND
+(2;1;1;0)HP_1695(prev_84,tmp_86,tmp_83,list,link@NI)&tmp_83!=null & 
+link!=tmp_83 --> tmp_83::node<key_40_1855,next_40_1856> * 
+HP_1857(next_40_1856,prev_84,tmp_86,list,link@NI,tmp_83@NI)&
+true,
+ // PRE_REC
+(2;1;1;0)HP_1857(next_40_1856,prev_84,tmp_86,list,link@NI,prev_84'@NI)&
+link!=prev_84' |#| prev_84'::node<key_40_1855,next_40_1856>&
+true --> HP_1695(prev_84',tmp_86,next_40_1856,list,link@NI)&
+true,
+ // POST
+(1;1;1;1;0)HP_1835(next_30_1834,tmp_86',tmp_86,list,tmp_83'@NI,tmp_83'@NI,prev_84@NI)&
+tmp_83=link & tmp_83'=link & list'=list & 
+prev_84'=prev_84 --> GP_1700(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list',link)&
+true,
+ // POST
+(2;1;1;1;0)HP_1824(list',prev_84,tmp_86,list,tmp_83@NI,tmp_83@NI)&
+prev_84=null & prev_84'=null & tmp_83'=link & tmp_83=link & tmp_86'=list' & 
+prev_84'=prev_84 --> GP_1700(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list',link)&
+true,
+ // POST
+(2;1;1;0)GP_1700(tmp_83,prev_84',tmp_86,tmp_86',next_40_1856,tmp_83',list,list',link)&
+tmp_83!=link --> GP_1700(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list',link)&
+true,
+ // POST
+(2;1;0)HP_1695(prev_84,tmp_86,tmp_83,list,link@NI)&tmp_83=null & 
+tmp_83'=null & list'=list & prev_84'=prev_84 & tmp_83'=tmp_83 & 
+tmp_86'=tmp_86 --> GP_1700(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list',link)&
+true]
+
+Procedure while_19_1$node~node~node~int~node~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_1695(prev_1912,tmp_1913,tmp_1914,list_1915,link_1916) ::= HP_1938(tmp_1914,link_1916)(4,5),
+ GP_1700(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list',link) ::= 
+ emp&list'=list & prev_84'=prev_84 & tmp_83'=tmp_83 & tmp_86'=tmp_86 & 
+ tmp_83=null & tmp_83'=null
+ or emp&tmp_83=link & tmp_83'=link & list'=list & prev_84'=prev_84
+ or emp&prev_84'=null & tmp_83=null & tmp_86'=list' & tmp_83'=link & 
+    tmp_83!=link
+ or emp&tmp_83'=null & tmp_86'=tmp_86 & prev_84'=tmp_83 & list'=list & 
+    tmp_83!=link
+ or emp&prev_84'=tmp_83 & list'=list & tmp_83'=link & tmp_83!=link
+ or emp&prev_84'=null & tmp_86'=list' & tmp_83'=link & tmp_83!=link
+ or emp&tmp_83'=null & tmp_86'=tmp_86 & list'=list & prev_84'!=link & 
+    tmp_83!=link
+ or emp&next_40_1923!=link & prev_84'=next_40_1923 & list'=list & 
+    tmp_83'=link & tmp_83!=link
+ or emp&tmp_83'=link & tmp_83=link & tmp_86'=list' & prev_84'=prev_84 & 
+    prev_84=null & prev_84'=null
+ (4,5),
+ HP_1938(tmp_1914,link_1916) ::= 
+ emp&tmp_1914=null
+ or HP_1938(next_40_1906,link_1916) * 
+    tmp_1914::node<key_40_1905,next_40_1906>&link_1916!=tmp_1914
+ or emp&tmp_1914!=null & tmp_1914=link_1916 & link_1916!=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase tmp_83::HP_1938{}<link>&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [prev_84;tmp_86;tmp_83;tp_85;list]
+                   (exists prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list',
+                   link: prev_84::GP_1700{}<prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list',link>&
+                   {FLOW,(4,5)=__norm#E})[]
+                   
+Checking procedure g_slist_remove_link$node~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_19,GP_20]requires HP_19(list,link@NI)&
+truerequires emp
+ ensures GP_20(list,link,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // PRE
+(0)HP_19(list,link@NI)&true --> list::HP_1938<link>&
+true,
+ // POST
+(0)emp&true --> GP_20(list,link,res)&
+true]
+
+Procedure g_slist_remove_link$node~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_19(list_2229,link_2230) ::= list_2229::HP_1938<link_2230>(4,5),
+ GP_20(list_2231,link_2232,res_2233) ::= emp(4,5),
+ GP_1700(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list',link) ::= 
+ emp&list'=list & prev_84'=prev_84 & tmp_83'=tmp_83 & tmp_86'=tmp_86 & 
+ tmp_83=null & tmp_83'=null
+ or emp&tmp_83=link & tmp_83'=link & list'=list & prev_84'=prev_84
+ or emp&prev_84'=null & tmp_83=null & tmp_86'=list' & tmp_83'=link & 
+    tmp_83!=link
+ or emp&tmp_83'=null & tmp_86'=tmp_86 & prev_84'=tmp_83 & list'=list & 
+    tmp_83!=link
+ or emp&prev_84'=tmp_83 & list'=list & tmp_83'=link & tmp_83!=link
+ or emp&prev_84'=null & tmp_86'=list' & tmp_83'=link & tmp_83!=link
+ or emp&tmp_83'=null & tmp_86'=tmp_86 & list'=list & prev_84'!=link & 
+    tmp_83!=link
+ or emp&next_40_1923!=link & prev_84'=next_40_1923 & list'=list & 
+    tmp_83'=link & tmp_83!=link
+ or emp&tmp_83'=link & tmp_83=link & tmp_86'=list' & prev_84'=prev_84 & 
+    prev_84=null & prev_84'=null
+ (4,5),
+ HP_1695(prev_1912,tmp_1913,tmp_1914,list_1915,link_1916) ::= HP_1938(tmp_1914,link_1916)(4,5),
+ HP_1938(tmp_1914,link_1916) ::= 
+ emp&tmp_1914=null
+ or HP_1938(next_40_1906,link_1916) * 
+    tmp_1914::node<key_40_1905,next_40_1906>&link_1916!=tmp_1914
+ or emp&tmp_1914!=null & tmp_1914=link_1916 & link_1916!=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase list::HP_1938{}<link>&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   emp&{FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 386 invocations 
+1 false contexts at: ( (19,1) )
+
+!!! log(small):(0.382778,987)
+Total verification time: 0.732371 second(s)
+	Time spent in main process: 0.515621 second(s)
+	Time spent in child processes: 0.21675 second(s)
+
+pred_syn_lemma: 4

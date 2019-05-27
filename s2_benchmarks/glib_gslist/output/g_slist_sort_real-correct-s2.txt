@@ -1,0 +1,155 @@
+
+!!!Full processing file "g_slist_sort_real.dryad.c"
+Parsing file "g_slist_sort_real.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E g_slist_sort_real.dryad.c -o g_slist_sort_real.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of g_slist_sort_real: :HP_19
+!!! post_eargs:[list,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_66_1$node~node~node: :HP_1710
+!!! post_eargs:[l2_84,l2_84',l1_83,l1_83',l2_85,l2_85']
+Checking procedure while_66_1$node~node~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1710,GP_1714]requires HP_1710(l2_84,l1_83,l2_85)&
+truerequires emp
+ ensures GP_1714(l2_84,l2_84',l1_83,l1_83',l2_85,l2_85')&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;1;0)HP_1710(l2_84,l1_83,l2_85)&
+l2_85!=null --> l2_85::node<key_73_1823,next_73_1824> * 
+HP_1825(next_73_1824,l2_84,l1_83,l2_85@NI)&
+true,
+ // BIND
+(2;1;1;0)HP_1825(next_73_1824,l2_84,l1_83,l2_85@NI)&
+next_73_1824!=null |#| l2_85::node<key_73_1823,next_73_1824>&
+true --> l1_83::node<key_79_1835,next_79_1836> * 
+HP_1837(next_79_1836,next_73_1824,l2_84,l2_85@NI,l1_83@NI)&
+true,
+ // BIND
+(2;1;1;0)HP_1837(next_79_1836,l2_84',l2_1828,l2_85@NI,l1_1839@NI)&
+l2_84'!=null |#| l2_85::node<key_73_1823,l2_84'> * 
+l1_1839::node<key_79_1835,next_79_1836>&
+true --> l2_84'::node<key_81_1842,next_81_1843> * 
+HP_1844(next_81_1843,next_79_1836,l2_1828,l2_85@NI,l1_1839@NI,l2_84'@NI)&
+true,
+ // PRE_REC
+(2;1;1;0)HP_1844(l2_85',l1_83',l2_84,l2_1827@NI,l1_83@NI,l2_84'@NI)&
+true |#| l2_1827::node<key_73_1823,l2_84'> * 
+l1_83::node<key_79_1835,l1_83'> * l2_84'::node<key_81_1842,l2_85'>&
+true --> HP_1710(l2_84',l1_83',l2_85')&
+true,
+ // POST
+(1;1;1;0)HP_1825(l2_84',l2_84,l1_83,l2_85@NI)&l2_84'=null & l2_85'=null & 
+l1_83'=l1_83 & 
+l2_85'=l2_84' --> GP_1714(l2_84,l2_84',l1_83,l1_83',l2_85,l2_85')&
+true,
+ // POST
+(2;1;1;0)l2_85::node<key_73_1823,next_73_1824> * 
+l1_83::node<key_79_1835,next_79_1836> * 
+GP_1714(next_73_1824,l2_84',next_79_1836,l1_83',next_81_1843,l2_85')&
+true --> GP_1714(l2_84,l2_84',l1_83,l1_83',l2_85,l2_85')&
+true,
+ // POST
+(2;1;0)HP_1710(l2_84,l1_83,l2_85)&l2_85=null & l2_85'=null & l1_83'=l1_83 & 
+l2_84'=l2_84 & 
+l2_85'=l2_85 --> GP_1714(l2_84,l2_84',l1_83,l1_83',l2_85,l2_85')&
+true]
+
+Procedure while_66_1$node~node~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_1710(l2_1891,l1_1892,l2_1893) ::= HP_1910(l1_1892,l2_1893)(4,5),
+ GP_1714(l2_1894,l2_1895,l1_1896,l1_1897,l2_1898,l2_1899) ::= 
+ l2_1898::node<key_73_1823,next_73_1824> * 
+ l1_1896::node<key_79_1835,next_79_1836> * 
+ GP_1714(next_73_1824,l2_1895,next_79_1836,l1_1897,next_81_1843,l2_1899)
+ or emp&l1_1897=l1_1896 & l2_1895=l2_1894 & l2_1898=null & l2_1899=null
+ (4,5),
+ HP_1910(l1_1892,l2_1893) ::= 
+ l2_1893::node<key_73_1823,next_73_1824> * 
+ l1_1892::node<key_79_1835,next_79_1836> * 
+ next_73_1824::node<key_81_1842,next_81_1843> * 
+ HP_1910(next_79_1836,next_81_1843)
+ or l2_1893::node<key_73_1823,next_73_1824>&next_73_1824=null
+ or emp&l2_1893=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase l2_85::HP_1910{}<l1_83>&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [l2_84;l1_83;l2_85]
+                   (exists l2_84,l2_84',l1_83,l1_83',
+                   l2_85': l2_85::GP_1714{}<l2_84,l2_84',l1_83,l1_83',l2_85'>&
+                   {FLOW,(4,5)=__norm#E})[]
+                   
+Checking procedure g_slist_sort_real$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_19,GP_20]requires HP_19(list)&
+truerequires emp
+ ensures GP_20(list,res)&true{,(4,5)=__norm#E};
+Proving binding in method g_slist_sort_real$node for spec  EAssume 
+   GP_20(list,res)&{FLOW,(4,5)=__norm#E}[]
+   , Line 0
+
+( [(,0 ); (,1 ); (,1 ); (,2 ); (,1 ); (,2 )]) bind: node  l1_83'::node<key_88_1732',next_88_1733'>@L cannot be derived from context
+g_slist_sort_real.dryad.c_88:7_-1:-1
+
+(Cause of Bind Failure) List of Failesc Context: [FEC(2, 0, 0 )]
+Failed States:
+[
+ Label: [(,0 ); (,1 ); (,1 ); (,2 ); (,1 ); (,2 )]
+ State:
+        fe_kind: MAY
+        fe_name: separation entailment
+        fe_locs: {
+                  fc_message: infer_heap_node
+                  fc_current_lhs_flow: {FLOW,(4,5)=__norm#E}}
+[[ COND ==>  UnmatchedRHSData ==> ]];
+ Label: [(,1 ); (,2 ); (,1 ); (,2 ); (,1 ); (,2 )]
+ State:
+        fe_kind: MAY
+        fe_name: separation entailment
+        fe_locs: {
+                  fc_message: infer_heap_node
+                  fc_current_lhs_flow: {FLOW,(4,5)=__norm#E}}
+[[ COND ==>  UnmatchedRHSData ==> ]]
+ ]g_slist_sort_real.dryad.c_88:7_-1:-1
+
+Context of Verification Failure: 1 File "",Line:0,Col:0
+
+Last Proving Location: 1 File "g_slist_sort_real.dryad.c",Line:88,Col:7
+
+Procedure g_slist_sort_real$node FAIL.(2)
+
+Exception Failure("bind failure exception") Occurred!
+
+Error(s) detected when checking procedure g_slist_sort_real$node
+Stop Omega... 306 invocations 
+1 false contexts at: ( (66,1) )
+
+!!! log(small):(0.313801,925)
+Total verification time: 0.473395 second(s)
+	Time spent in main process: 0.403602 second(s)
+	Time spent in child processes: 0.069793 second(s)
+
+pred_syn_lemma: 2

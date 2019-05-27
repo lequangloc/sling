@@ -1,0 +1,167 @@
+
+!!!Full processing file "g_slist_copy.dryad.c"
+Parsing file "g_slist_copy.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E g_slist_copy.dryad.c -o g_slist_copy.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of g_slist_copy: :HP_19
+!!! post_eargs:[list,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_27_2$void_star~node~node~int~node: :HP_1707
+!!! post_eargs:[tmp___88,tmp___88',last_84,last_84',tail_87,tail_87',list,list']
+Checking procedure while_27_2$void_star~node~node~int~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1707,GP_1712]requires HP_1707(tmp___88,last_84,tail_87,list)&
+truerequires emp
+ ensures GP_1712(tmp___88,tmp___88',last_84,last_84',tail_87,tail_87',list,list')&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;1;0)HP_1707(tmp___88,last_84,tail_87,list)&
+list!=null --> list::node<key_38_1847,next_38_1848> * 
+HP_1849(next_38_1848,tmp___88,last_84,tail_87,list@NI)&
+true,
+ // BIND
+(1;1;0)HP_1849(next_38_1848,tmp___88,last_84,tail_87,list@NI)&
+true |#| list::node<key_38_1847,next_38_1848>&
+true --> last_84::node<key_42_1868,next_42_1869> * 
+HP_1870(next_42_1869,next_38_1848,tmp___88,tail_87,list@NI,last_84@NI)&
+true,
+ // PRE_REC
+(1;1;0)last_84'::node<key_38_1847,v_node_40_1867> * 
+HP_1870(next_42_1869,list',tmp___88,tail_87,list@NI,last_1875@NI)&
+tmp___88'!=null & v_node_40_1867=null & 
+tail_87'=last_84' |#| list::node<key_38_1847,list'> * 
+last_1875::node<key_42_1868,last_84'>&
+true --> HP_1707(tmp___88',last_84',tail_87',list') * 
+HP_1890(next_42_1869,tmp___88,tail_87)&
+true,
+ // POST
+(1;1;0)list::node<key_38_1847,next_38_1848> * 
+last_84::node<key_42_1868,tail_1897> * 
+HP_1890(next_42_1871,tmp___88,tail_87) * 
+GP_1712(tmp___1896,tmp___88',tail_1897,last_84',tail_1897,tail_87',next_38_1848,list')&
+tail_1897!=null & 
+tmp___1896!=null --> GP_1712(tmp___88,tmp___88',last_84,last_84',tail_87,tail_87',list,list')&
+true,
+ // POST
+(2;1;0)HP_1707(tmp___88,last_84,tail_87,list)&list=null & list'=null & 
+last_84'=last_84 & list'=list & tail_87'=tail_87 & 
+tmp___88'=tmp___88 --> GP_1712(tmp___88,tmp___88',last_84,last_84',tail_87,tail_87',list,list')&
+true]
+
+Procedure while_27_2$void_star~node~node~int~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_1707(tmp___1928,last_1929,tail_1930,list_1931) ::= 
+ last_1929::node<key_42_1868,next_42_1869> * 
+ list_1931::node<key_38_1903,next_38_1904> * (htrue)&next_42_1869=null
+ or emp&list_1931=null
+ (4,5),
+ GP_1712(tmp___1988,tmp___1989,last_1990,last_1991,tail_1992,tail_1993,list_1994,list_1995) ::= 
+ list_1994::node<key_38_1847,next_38_1848> * 
+ last_1990::node<key_42_1868,tail_1897> * 
+ GP_1712(tmp___1896,tmp___1989,tail_1897,last_1991,tail_1897,tail_1993,next_38_1848,list_1995) * 
+ HP_1966(next_38_1965,next_42_1871,tmp___1988,tail_1992,list,last_1875,list')&
+ tmp___1896!=null & tail_1897!=null
+ or emp&list_1995=null & list_1994=null & tmp___1989=tmp___1988 & 
+    tail_1993=tail_1992 & last_1991=last_1990
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase tmp___88::HP_1707{}<last_84,tail_87,list>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [tmp___88;last_84;tail_87;list_key___89;list]
+                   (exists tmp___88,tmp___88',last_84,last_84',tail_87,
+                   tail_87',
+                   list': list::GP_1712{}<tmp___88,tmp___88',last_84,last_84',tail_87,tail_87',list'>&
+                   {FLOW,(4,5)=__norm#E})[]
+                   
+Checking procedure g_slist_copy$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_19,GP_20]requires HP_19(list)&
+truerequires emp
+ ensures GP_20(list,res)&true{,(4,5)=__norm#E};
+
+!!!>>>>>> mismatch ptr tmp___2192::HP_1707<last_84',tail_2193,list'> is not found (or inst) in the lhs <<<<<<
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;0)HP_19(list)&list!=null --> list::node<key_19_2158,next_19_2159> * 
+HP_2160(next_19_2159,list@NI)&
+true,
+ // POST
+(1;0)list::node<key_19_2158,list_2217> * res::node<key_19_2158,list_2217> * 
+list_2217::GP_1712<tmp___2210,tmp___2211,last_2212,last_2213,tail_2214,tail_2215,list_2216>&
+list_2217=null --> GP_20(list,res)&
+true,
+ // POST
+(1;0)HP_2160(next_19_2159,list@NI)&next_19_2159=null --> emp&
+true,
+ // POST
+(2;0)HP_19(list)&list=null & res=null & res=list --> GP_20(list,res)&
+true]
+
+Procedure g_slist_copy$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_19(list_2224) ::= list_2224::node<key_19_2158,next_19_2159>&next_19_2159=null(4,5),
+ GP_20(list_2225,res_2226) ::= 
+ list_2225::node<key_19_2158,list_2217> * 
+ res_2226::node<key_19_2158,list_2217> * 
+ list_2217::GP_1712<tmp___2210,tmp___2211,last_2212,last_2213,tail_2214,tail_2215,list_2216>&
+ list_2217=null
+ or emp&list_2225=null & res_2226=null
+ (4,5),
+ GP_1712(tmp___1988,tmp___1989,last_1990,last_1991,tail_1992,tail_1993,list_1994,list_1995) ::= 
+ list_1994::node<key_38_1847,next_38_1848> * 
+ last_1990::node<key_42_1868,tail_1897> * 
+ GP_1712(tmp___1896,tmp___1989,tail_1897,last_1991,tail_1897,tail_1993,next_38_1848,list_1995) * 
+ HP_1966(next_38_1965,next_42_1871,tmp___1988,tail_1992,list,last_1875,list')&
+ tmp___1896!=null & tail_1897!=null
+ or emp&list_1995=null & list_1994=null & tmp___1989=tmp___1988 & 
+    tail_1993=tail_1992 & last_1991=last_1990
+ (4,5),
+ HP_1707(tmp___1928,last_1929,tail_1930,list_1931) ::= 
+ last_1929::node<key_42_1868,next_42_1869> * 
+ list_1931::node<key_38_1903,next_38_1904> * (htrue)&next_42_1869=null
+ or emp&list_1931=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase exists (Expl)[](Impl)[key_19_2158](ex)[]list::node<key_19_2158,next_19_2159>&
+       next_19_2159=null&{FLOW,(1,30)=__flow#E}[]
+         EBase exists (Expl)[](Impl)[key_19_2158](ex)[]emp&MayLoop[]&
+               {FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   list::GP_20{}<res>&{FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 319 invocations 
+1 false contexts at: ( (27,2) )
+
+!!! log(small):(0.280888,980)
+Total verification time: 0.532614 second(s)
+	Time spent in main process: 0.476498 second(s)
+	Time spent in child processes: 0.056116 second(s)
+
+pred_syn_lemma: 4

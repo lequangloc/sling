@@ -1,0 +1,133 @@
+
+!!!Full processing file "g_slist_last.dryad.c"
+Parsing file "g_slist_last.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E g_slist_last.dryad.c -o g_slist_last.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of g_slist_last1: :HP_17
+!!! post_eargs:[list,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_15_4$node: :HP_1685
+!!! post_eargs:[list,list']
+Checking procedure while_15_4$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1685,GP_1687]requires HP_1685(list)&
+truerequires emp
+ ensures GP_1687(list,list')&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;0)HP_1685(list)&true --> list::node<key_15_1744,next_15_1745> * 
+HP_1746(next_15_1745,list@NI)&
+true,
+ // PRE_REC
+(1;1;0)HP_1746(list',list@NI)&list'!=null |#| list::node<key_15_1744,list'>&
+true --> HP_1685(list')&
+true,
+ // POST
+(1;1;0)list::node<key_15_1744,next_15_1745> * GP_1687(next_15_1745,list')&
+next_15_1745!=null --> GP_1687(list,list')&
+true,
+ // POST
+(2;1;0)list::node<key_15_1744,next_15_1745>&next_15_1745=null & 
+list'=list --> GP_1687(list,list')&
+true,
+ // POST
+(2;1;0)HP_1746(next_15_1745,list@NI)&next_15_1745=null --> emp&
+true]
+
+Procedure while_15_4$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_1685(list_1768) ::= 
+ list_1768::node<key_15_1744,next_15_1745> * HP_1685(next_15_1745)&
+ list_1768!=null
+ or list_1768::node<key_15_1744,next_15_1745>&list_1768!=null & 
+    next_15_1745=null
+ (4,5),
+ GP_1687(list_1769,list_1770) ::= list_1776::node<key_15_1744,next_15_1745> * list_1769::lseg<list_1776>&
+next_15_1745=null & list_1770=list_1776(4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase list::HP_1685{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [list]
+                   (exists key_15_1744,next_15_1745,
+                   list_1776: list_1776::node<key_15_1744,next_15_1745> * 
+                   list::lseg{}<list_1776>&next_15_1745=null & 
+                   list'=list_1776&{FLOW,(4,5)=__norm#E})[]
+                   
+Checking procedure g_slist_last1$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_17,GP_18]requires HP_17(list)&
+truerequires emp
+ ensures GP_18(list,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // PRE
+(1;0)HP_17(list)&list!=null --> list::HP_1685<>&
+true,
+ // POST
+(1;0)res::node<key_15_1974,next_15_1975> * list::lseg<res>&
+next_15_1975=null --> GP_18(list,res)&
+true,
+ // POST
+(2;0)HP_17(list)&list=null & res=null & res=list --> GP_18(list,res)&
+true]
+
+Procedure g_slist_last1$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_17(list_1976) ::= 
+ list_1976::HP_1685<>&list_1976!=null
+ or emp&list_1976=null
+ (4,5),
+ GP_18(list_1977,res_1978) ::= 
+ res_1978::node<key_15_1974,next_15_1975> * list_1977::lseg<res_1978>&
+ next_15_1975=null
+ or emp&list_1977=null & res_1978=null
+ (4,5),
+ GP_1687(list_1769,list_1770) ::= list_1776::node<key_15_1744,next_15_1745> * list_1769::lseg<list_1776>&
+next_15_1745=null & list_1770=list_1776(4,5),
+ HP_1685(list_1768) ::= 
+ list_1768::node<key_15_1744,next_15_1745> * HP_1685(next_15_1745)&
+ list_1768!=null
+ or list_1768::node<key_15_1744,next_15_1745>&list_1768!=null & 
+    next_15_1745=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase list::HP_17{}<>&{FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   list::GP_18{}<res>&{FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 373 invocations 
+1 false contexts at: ( (15,4) )
+
+!!! log(small):(0.400161,1175)
+Total verification time: 0.434697 second(s)
+	Time spent in main process: 0.384865 second(s)
+	Time spent in child processes: 0.049832 second(s)
+
+pred_syn_lemma: 6

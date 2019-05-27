@@ -1,0 +1,180 @@
+
+!!!Full processing file "sl_filter.dryad.c"
+Parsing file "sl_filter.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E sl_filter.dryad.c -o sl_filter.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of sl_filter: :HP_23
+!!! post_eargs:[x,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_15_2$node~node~node~node~int~node: :HP_1696
+!!! post_eargs:[old_curr_85,old_curr_85',old_83,old_83',res_82,res_82',curr_81,curr_81',prv_80,prv_80']
+Checking procedure while_15_2$node~node~node~node~int~node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1696,GP_1702]requires HP_1696(old_curr_85,old_83,res_82,curr_81,prv_80)&
+truerequires emp
+ ensures GP_1702(old_curr_85,old_curr_85',old_83,old_83',res_82,res_82',curr_81,curr_81',prv_80,prv_80')&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;1;0)HP_1696(old_curr_85,old_83,res_82,curr_81,prv_80)&
+curr_81!=null --> curr_81::node<next_23_1814> * 
+HP_1815(next_23_1814,old_curr_85,old_83,res_82,prv_80,curr_81@NI)&
+true,
+ // BIND
+(1;1;1;1;0)HP_1815(next_23_1814,old_curr_85,old_83,res_82,prv_80,curr_81@NI)&
+prv_80!=null |#| curr_81::node<next_23_1814>&
+true --> prv_80::node<next_28_1832> * 
+HP_1833(next_28_1832,next_23_1814,old_curr_85,old_83,res_82,curr_81@NI,prv_80@NI)&
+true,
+ // PRE_REC
+(1;1;1;1;0)HP_1833(next_28_1832,curr_81',old_curr_1829,old_1811,res_82',curr_81@NI,prv_80@NI)&
+curr_81=null & old_curr_85'=curr_81' |#| curr_81::node<curr_81'> * 
+prv_80::node<curr_81'>&
+true --> HP_1696(old_curr_85',curr_81,res_82',curr_81',prv_80)&
+true,
+ // PRE_REC
+(2;1;1;1;0)HP_1815(next_23_1814,old_curr_85,old_83,res_82,prv_80,curr_81@NI)&
+curr_81=null & old_83'=null & prv_80=null & prv_80'=null & prv_80=curr_81 & 
+prv_80'=old_83' & old_83'=curr_81 & 
+res_82'=curr_81' |#| curr_81::node<curr_81'>&
+true --> HP_1696(old_curr_85,old_83',res_82',curr_81',prv_80')&
+true,
+ // PRE_REC
+(2;1;1;0)HP_1815(curr_81',old_curr_85,old_83,res_82,prv_80,old_83'@NI)&
+prv_80'=old_83' |#| old_83'::node<curr_81'>&
+true --> HP_1696(old_curr_85,old_83',res_82,curr_81',prv_80')&
+true,
+ // POST
+(2;1;1;0)GP_1702(old_curr_85,old_curr_85',curr_1817,old_83',res_82,res_82',next_23_1814,curr_81',curr_1817,prv_80')&
+true --> GP_1702(old_curr_85,old_curr_85',old_83,old_83',res_82,res_82',curr_1817,curr_81',prv_80,prv_80')&
+true,
+ // POST
+(2;1;0)HP_1696(old_curr_85,old_83,res_82,curr_81,prv_80)&curr_81=null & 
+curr_81'=null & curr_81'=curr_81 & old_83'=old_83 & 
+old_curr_85'=old_curr_85 & prv_80'=prv_80 & 
+res_82'=res_82 --> GP_1702(old_curr_85,old_curr_85',old_83,old_83',res_82,res_82',curr_81,curr_81',prv_80,prv_80')&
+true]
+
+Procedure while_15_2$node~node~node~node~int~node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ GP_1702(old_curr_85,old_curr_85',old_83,old_83',res_82,res_82',curr_1817,curr_81',prv_80,prv_80') ::= emp&curr_81'=curr_1817 & old_83'=old_83 & old_curr_85'=old_curr_85 & 
+prv_80'=prv_80 & res_82'=res_82 & curr_1817=null & curr_81'=null(4,5),
+ HP_1696(old_curr_1902,old_1903,res_1904,curr_1905,prv_1906) ::= 
+ curr_1905::node<next_23_1814> * 
+ HP_1696(old_curr_1902,curr_1905,res_1904,next_23_1814,prv_80')&
+ prv_80'=curr_1905
+ or curr_1905::node<next_23_1814> * prv_1906::node<next_28_1832> * 
+    HP_1926(next_23_1814,res_1904,curr_1905,prv_1906)
+ or emp&curr_1905=null
+ (4,5),
+ HP_1907(next_23_1865,res_1868,prv_1869,curr_1870) ::= 
+ emp&next_23_1865=null
+ or HP_1907(next_23_1814,res_82',prv_80',curr_81')&prv_1869=null & 
+    curr_1870=null
+ or next_23_1865::node<next_23_1814> * 
+    HP_1907(next_23_1814,res_1868,prv_80',next_23_1865)&prv_80'=curr_1870
+ or prv_1869::node<next_28_1832> * 
+    HP_1696(old_curr_85',curr_1870,res_1868,next_23_1865,prv_1869)&
+    curr_1870=null & old_curr_85'=next_23_1865
+ or emp&prv_1869=null & curr_1870=null
+ (4,5),
+ HP_1926(curr_1872,res_1875,curr_1876,prv_1877) ::= 
+ curr_1872::node<next_23_1814> * 
+ HP_1907(next_23_1814,res_1875,prv_1877,curr_1872)&curr_1876=null & 
+ old_curr_85'=curr_1872
+ or emp&curr_1876=null & curr_1872=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase old_curr_85::HP_1696{}<old_83,res_82,curr_81,prv_80>&
+       {FLOW,(4,5)=__norm#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [old_curr_85;old_83;res_82;curr_81;prv_80]
+                   emp&curr_81'=curr_81 & old_83'=old_83 & 
+                   old_curr_85'=old_curr_85 & prv_80'=prv_80 & 
+                   res_82'=res_82 & curr_81=null & curr_81'=null&
+                   {FLOW,(4,5)=__norm#E}[]
+                   
+Checking procedure sl_filter$node... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_23,GP_24]requires HP_23(x)&
+truerequires emp
+ ensures GP_24(x,res)&true{,(4,5)=__norm#E};
+
+!!!>>>>>> mismatch ptr old_curr_2106::HP_1696<old_2107,curr_81',curr_81',prv_80'> is not found (or inst) in the lhs <<<<<<
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // POST
+(0)HP_23(res)&res=null & x=null & x=res --> GP_24(x,res)&
+true]
+
+Procedure sl_filter$node SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_23(res_2118) ::= emp&res_2118=null(4,5),
+ GP_24(x_2119,res_2120) ::= emp&x_2119=res_2120 & res_2120=null & x_2119=null(4,5),
+ GP_1702(old_curr_85,old_curr_85',old_83,old_83',res_82,res_82',curr_1817,curr_81',prv_80,prv_80') ::= emp&curr_81'=curr_1817 & old_83'=old_83 & old_curr_85'=old_curr_85 & 
+prv_80'=prv_80 & res_82'=res_82 & curr_1817=null & curr_81'=null(4,5),
+ HP_1696(old_curr_1902,old_1903,res_1904,curr_1905,prv_1906) ::= 
+ curr_1905::node<next_23_1814> * 
+ HP_1696(old_curr_1902,curr_1905,res_1904,next_23_1814,prv_80')&
+ prv_80'=curr_1905
+ or curr_1905::node<next_23_1814> * prv_1906::node<next_28_1832> * 
+    HP_1926(next_23_1814,res_1904,curr_1905,prv_1906)
+ or emp&curr_1905=null
+ (4,5),
+ HP_1907(next_23_1865,res_1868,prv_1869,curr_1870) ::= 
+ emp&next_23_1865=null
+ or HP_1907(next_23_1814,res_82',prv_80',curr_81')&prv_1869=null & 
+    curr_1870=null
+ or next_23_1865::node<next_23_1814> * 
+    HP_1907(next_23_1814,res_1868,prv_80',next_23_1865)&prv_80'=curr_1870
+ or prv_1869::node<next_28_1832> * 
+    HP_1696(old_curr_85',curr_1870,res_1868,next_23_1865,prv_1869)&
+    curr_1870=null & old_curr_85'=next_23_1865
+ or emp&prv_1869=null & curr_1870=null
+ (4,5),
+ HP_1926(curr_1872,res_1875,curr_1876,prv_1877) ::= 
+ curr_1872::node<next_23_1814> * 
+ HP_1907(next_23_1814,res_1875,prv_1877,curr_1872)&curr_1876=null & 
+ old_curr_85'=curr_1872
+ or emp&curr_1876=null & curr_1872=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase emp&x=null&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   emp&x=res & res=null & x=null&{FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 208 invocations 
+1 false contexts at: ( (15,2) )
+
+!!! log(small):(0.138339,620)
+Total verification time: 0.420106 second(s)
+	Time spent in main process: 0.369711 second(s)
+	Time spent in child processes: 0.050395 second(s)
+
+pred_syn_lemma: 4

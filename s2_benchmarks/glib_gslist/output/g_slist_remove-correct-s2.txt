@@ -1,0 +1,127 @@
+
+!!!Full processing file "g_slist_remove.dryad.c"
+Parsing file "g_slist_remove.dryad.c" by cil parser...
+GCC Preprocessing...
+gcc -C -E g_slist_remove.dryad.c -o g_slist_remove.dryad.c.prep
+
+!!! dname 2:void_star
+!!! core_type:void 
+!!! generate unknown predicate for Pre synthesis of g_slist_remove: :HP_19
+!!! post_eargs:[list,res]
+!!! processing primitives "["prelude.ss"]
+WARNING: Command for starting mona interactively (/usr/local/bin/mona_inter) not found!
+Starting Omega.../usr/local/bin/oc
+
+!!! generate unknown predicate for Pre synthesis of while_17_1$node~node~node~int~node~int: :HP_1693
+!!! post_eargs:[prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list']
+Checking procedure while_17_1$node~node~node~int~node~int... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_1693,GP_1698]requires HP_1693(prev_84,tmp_86,tmp_83,list)&
+truerequires emp
+ ensures GP_1698(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list')&
+true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // BIND
+(1;1;0)HP_1693(prev_84,tmp_86,tmp_83,list)&
+tmp_83!=null --> tmp_83::node<key_24_1811,next_24_1812> * 
+HP_1813(next_24_1812,prev_84,tmp_86,list,tmp_83@NI)&
+true,
+ // BIND
+(1;1;1;1;0)HP_1813(next_24_1812,prev_84,tmp_86,list,tmp_83@NI)&
+prev_84!=null |#| tmp_83::node<key_24_1811,next_24_1812>&
+true --> prev_84::node<key_29_1832,next_29_1833> * 
+HP_1834(next_29_1833,next_24_1812,tmp_86,list,tmp_83@NI,prev_84@NI)&
+true,
+ // PRE_REC
+(2;1;1;0)HP_1813(next_24_1812,prev_84,tmp_86,list,prev_84'@NI)&
+true |#| prev_84'::node<key_24_1811,next_24_1812>&
+true --> HP_1693(prev_84',tmp_86,next_24_1812,list)&
+true,
+ // POST
+(2;1;1;0)GP_1698(tmp_83,prev_84',tmp_86,tmp_86',next_24_1812,tmp_83',list,list')&
+true --> GP_1698(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list')&
+true,
+ // POST
+(2;1;0)HP_1693(prev_84,tmp_86,tmp_83,list)&tmp_83=null & tmp_83'=null & 
+list'=list & prev_84'=prev_84 & tmp_83'=tmp_83 & 
+tmp_86'=tmp_86 --> GP_1698(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list')&
+true]
+
+Procedure while_17_1$node~node~node~int~node~int SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_1693(prev_1888,tmp_1889,tmp_1890,list_1891) ::= HP_1892(tmp_1890)(4,5),
+ GP_1698(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list') ::= emp&list'=list & prev_84'=prev_84 & tmp_83'=tmp_83 & tmp_86'=tmp_86 & 
+tmp_83=null & tmp_83'=null(4,5),
+ HP_1892(tmp_1890) ::= 
+ HP_1892(next_24_1883) * tmp_1890::node<key_24_1882,next_24_1883>
+ or emp&tmp_1890=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase tmp_83::HP_1892{}<>&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume ref [prev_84;tmp_86;tmp_83;tp_85;list]
+                   emp&list'=list & prev_84'=prev_84 & tmp_83'=tmp_83 & 
+                   tmp_86'=tmp_86 & tmp_83=null & tmp_83'=null&
+                   {FLOW,(4,5)=__norm#E}[]
+                   
+Checking procedure g_slist_remove$node~int... 
+
+
+******************************
+   ******* SPECIFICATION1 ********
+******************************
+ infer[@shape HP_19,GP_20]requires HP_19(list)&
+truerequires emp
+ ensures GP_20(list,res)&true{,(4,5)=__norm#E};
+
+*************************************
+*******shape relational assumptions ********
+*************************************
+[ // PRE
+(0)HP_19(list)&true --> list::HP_1892<>&
+true,
+ // POST
+(0)emp&list=null & res=null & res=list --> GP_20(list,res)&
+true]
+
+Procedure g_slist_remove$node~int SUCCESS.
+
+*********************************************************
+*******relational definition ********
+*********************************************************
+[ HP_19(list_1985) ::= list_1985::HP_1892<>(4,5),
+ GP_20(list_1986,res_1987) ::= emp&res_1987=list_1986 & list_1986=null & res_1987=null(4,5),
+ GP_1698(prev_84,prev_84',tmp_86,tmp_86',tmp_83,tmp_83',list,list') ::= emp&list'=list & prev_84'=prev_84 & tmp_83'=tmp_83 & tmp_86'=tmp_86 & 
+tmp_83=null & tmp_83'=null(4,5),
+ HP_1693(prev_1888,tmp_1889,tmp_1890,list_1891) ::= HP_1892(tmp_1890)(4,5),
+ HP_1892(tmp_1890) ::= 
+ HP_1892(next_24_1883) * tmp_1890::node<key_24_1882,next_24_1883>
+ or emp&tmp_1890=null
+ (4,5)]
+*************************************
+
+!!! INFERRED SHAPE SPEC: EBase list::HP_1892{}<>&{FLOW,(1,30)=__flow#E}[]
+         EBase emp&MayLoop[]&{FLOW,(4,5)=__norm#E}[]
+                 EAssume 
+                   emp&res=list & list=null & res=null&
+                   {FLOW,(4,5)=__norm#E}[]
+                   Stop Omega... 220 invocations 
+1 false contexts at: ( (17,1) )
+
+!!! log(small):(0.140479,664)
+Total verification time: 0.401751 second(s)
+	Time spent in main process: 0.358395 second(s)
+	Time spent in child processes: 0.043356 second(s)
+
+pred_syn_lemma: 4
